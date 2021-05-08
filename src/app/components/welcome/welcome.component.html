@@ -1,9 +1,115 @@
 <app-navigation-header></app-navigation-header>
 <div class="contenedorcardwelcome">
-<mat-card class="divfondowelcome text-center w-responsive">
-   <div class="contenedor">
+
+   <div>
+    <mat-card class="divfondowelcome text-center w-responsive">
     <img mat-card-image class="holaimagen" src="../../assets/images/fondogym.jpeg" alt="Photo of a Shiba Inu">
-   
+    </mat-card>
 </div>
-  </mat-card>
+</div>
+
+<div class="row">
+  <div class="col-md-4">
+<mat-card class="example-card text-center">
+  <mat-card-header class="text-center">
+    <div mat-card-avatar class="example-header-image"></div>
+ 
+    <mat-card-title class="text-center tipoLetra font-weight-bold">Horarios</mat-card-title>
+    <mat-card-subtitle>Reserva la hora que mejor se adapte a ti</mat-card-subtitle>
+
+  </mat-card-header>
+  <img mat-card-image src="../../assets/images/horario.jpg" alt="Photo of a Shiba Inu">
+  <mat-accordion class="">
+    <mat-expansion-panel hideToggle class="">
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="tipoLetra">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Horario de Lunes a Sábado
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+     
+<table class="text-center">
+
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;09:00 - 10:00</td>
+    
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10:00 - 11:00</td>
+    
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11:00 - 12:00</td>
+    
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;16:00 - 17:00</td>
+    
+  </tr> 
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;17:00 - 18:00</td>
+    
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;18:00 - 19:00</td>
+    
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;19:00 - 20:00</td>
+    
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20:00 - 21:00</td>
+    
+  </tr>
+  <tr>
+    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;21:00 - 22:00</td>
+    
+  </tr>
+
+</table>
+    </mat-expansion-panel>
+  </mat-accordion>
+  
+
+</mat-card>
+  </div>
+
+  <div class="col-md-4">
+<mat-card class="example-card">
+  <mat-card-header class="text-center">
+    <div mat-card-avatar class="example-header-image text-center"></div>
+    <mat-card-title class="text-center tipoLetra font-weight-bold">¿Qué hacemos?</mat-card-title>
+    <mat-card-subtitle>Ofrecemos una gran variedad de actividades</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="../../assets/images/entreno.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting.
+    </p>
+  </mat-card-content>
+</mat-card>
+  </div>
+
+<div class="col-md-4">
+<mat-card class="example-card">
+  <mat-card-header class="text-center">
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title class="text-center tipoLetra font-weight-bold">Contacto</mat-card-title>
+    <mat-card-subtitle>Localízanos y pregunta sin compromiso</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="../../assets/images/contacto.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting.
+    </p>
+  </mat-card-content>
+</mat-card>
+  </div>
 </div>

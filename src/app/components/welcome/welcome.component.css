@@ -23,6 +23,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
 }
 
 .centrado{
@@ -31,4 +32,11 @@
     left: 80%;
     transform: translate(-50%, -50%);
     background-color: white;
+}
+
+.tipoLetra{
+    
+    font-family: 'Playfair Display', serif;
+    
+    
 }
