@@ -4,6 +4,10 @@
     
 }
 
+.anchohr{
+    width: 100%;
+}
+
 .contenedor{
     position: relative;
     display: inline-block;
