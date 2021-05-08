@@ -1,0 +1,54 @@
+<!-- Footer -->
+<footer class="page-footer font-small special-color-dark pt-4 color">
+
+    <!-- Copyright -->
+    <div id="social" class="footer-copyright text-center py-3 mr-3 icono ml-4 ">
+         <!-- Facebook -->
+         <a href="#" title='Facebook' class="rrss icono facebook mr-4">
+            <i class="fab fa-facebook-f fa-lg mt-1 fa-2x"><span class="sr-only">fb</span></i>
+        </a>
+        <!-- Twitter -->
+        <a  href="#" title='Twitter' class="rrss icono twitter mr-4">
+            <i class="fab fa-twitter fa-lg mt-1 fa-2x"><span class="sr-only">tw</span></i>
+        </a>
+        <!--Instagram-->
+        <a id="" href="#" title='Instagram' class="rrss icono instagram mr-4">
+            <i class="fab fa-instagram fa-lg mt-1 fa-2x"><span class="sr-only">ig</span></i>
+        </a>
+        <!--YouTube-->
+        <a id="" href="#" title='Youtube' class="rrss icono youtube mr-4">
+            <i class="fab fa-youtube fa-lg  mt-1 fa-2x"><span class="sr-only">yt</span></i>
+        </a>
+     
+    </div>
+    <div class="footer-copyright text-center py-3 mr-4 icono ">© 2021 Copyright:
+        <a href="#"> www.firsttrain.com</a>
+    </div>
+    <!-- Copyright -->
+
+  </footer>
+  <!-- Footer -->
+  <script>
+      $(document).ready(function() {
+  $("#social a" ).each(function() {
+    var tipt = $(this).attr('title');
+    $(this).attr('title','');
+    $(this).append('<span>');
+    $(this).children('span').text(tipt);
+    var spanWidth = $(this).children('span').width() + 50;
+    var spanMarg = 0 - spanWidth/4;
+    $(this).children('span').css('width',spanWidth);
+    $(this).children('span').css('margin-left',spanMarg);
+    $(this).hover (
+      function() {
+        $(this).children('span').fadeIn();
+        $('#social a').css('opacity','.1');
+        $(this).css('opacity','1');
+      }, function() {
+        $(this).children('span').fadeOut();
+        $('#social a').css('opacity','1');
+      }
+    );
+  });                    
+});
+  </script>

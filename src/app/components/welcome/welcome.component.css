@@ -3,7 +3,11 @@
     
     
 }
-
+.iconos{
+    display: flex;
+    justify-content: center;
+    
+}
 .anchohr{
     width: 100%;
 }

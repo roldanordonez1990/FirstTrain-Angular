@@ -12,13 +12,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    NavigationHeaderComponent
+    NavigationHeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
