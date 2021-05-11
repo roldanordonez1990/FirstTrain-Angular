@@ -10,6 +10,7 @@ export class NavigationHeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }

@@ -17,3 +17,21 @@ span.tipoLetra{
     font-family: 'Playfair Display', serif;
     font-size: large;
 }
+nav{
+    background-color: black !important;
+}
+
+.navbar-light .navbar-toggler {
+    background-color: white;
+    
+  }
+
+.nav-link{
+    color: white !important;
+}
+
+.tipoLetra{
+    
+    font-family: 'Playfair Display', serif;
+    font-size: large;
+}
