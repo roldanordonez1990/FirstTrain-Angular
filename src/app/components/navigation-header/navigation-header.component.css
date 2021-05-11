@@ -15,7 +15,7 @@
 span.tipoLetra{
     
     font-family: 'Playfair Display', serif;
-    font-size: large;
+   
 }
 nav{
     background-color: black !important;
@@ -36,6 +36,7 @@ nav{
     font-size: large;
 }
 
+
 a {
     text-decoration: none;
     background-image: linear-gradient(currentColor, currentColor);
@@ -49,3 +50,5 @@ a:hover, a:focus {
     background-size: 100% 2px;
 }
 
+
+ 
