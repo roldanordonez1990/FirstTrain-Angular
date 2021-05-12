@@ -1,0 +1,159 @@
+<app-navigation-header></app-navigation-header>
+<div class="contenedorLogin mt-4 mb-3">
+    <mat-card class="loginCard">
+      <mat-card-header class="botonLogin">
+        <mat-card-title>Nuevo Registro</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form >
+          <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input type="text" matInput placeholder="Tu nombre de usuario" formControlName="username">
+            <mat-hint></mat-hint>
+            <!--Esto es una pequeña etiqueta para sugerencias de texto-->
+            <ng-container *ngIf="">
+              <div class="errorValidacion" *ngIf="">Debes introducir
+                algún valor
+              </div>
+              <div class="errorValidacion" *ngIf="">Debe tener al
+                menos 5
+                caracteres</div>
+            </ng-container>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Apellidos</mat-label>
+            <input type="text" matInput placeholder="Tus apellidos" formControlName="username">
+            <mat-hint></mat-hint>
+            <!--Esto es una pequeña etiqueta para sugerencias de texto-->
+            <ng-container *ngIf="">
+              <div class="errorValidacion" *ngIf="">Debes introducir
+                algún valor
+              </div>
+              <div class="errorValidacion" *ngIf="">Debe tener al
+                menos 5
+                caracteres</div>
+            </ng-container>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>DNI</mat-label>
+            <input type="text" matInput placeholder="Tu dni" formControlName="username">
+            <mat-hint></mat-hint>
+            <!--Esto es una pequeña etiqueta para sugerencias de texto-->
+            <ng-container *ngIf="">
+              <div class="errorValidacion" *ngIf="">Debes introducir
+                algún valor
+              </div>
+              <div class="errorValidacion" *ngIf="">Debe tener al
+                menos 5
+                caracteres</div>
+            </ng-container>
+          </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Sexo</mat-label>
+            <mat-select >
+              <mat-option >Hombre</mat-option>
+              <mat-option >Mujer</mat-option>
+              <mat-option >Otro</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Dirección</mat-label>
+            <input type="text" matInput placeholder="Tu dirección" formControlName="username">
+            <mat-hint></mat-hint>
+            <!--Esto es una pequeña etiqueta para sugerencias de texto-->
+            <ng-container *ngIf="">
+              <div class="errorValidacion" *ngIf="">Debes introducir
+                algún valor
+              </div>
+              <div class="errorValidacion" *ngIf="">Debe tener al
+                menos 5
+                caracteres</div>
+            </ng-container>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Teléfono</mat-label>
+            <input type="text" matInput placeholder="Tu teléfono particular" formControlName="username">
+            <mat-hint></mat-hint>
+            <!--Esto es una pequeña etiqueta para sugerencias de texto-->
+            <ng-container *ngIf="">
+              <div class="errorValidacion" *ngIf="">Debes introducir
+                algún valor
+              </div>
+              <div class="errorValidacion" *ngIf="">Debe tener al
+                menos 5
+                caracteres</div>
+            </ng-container>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Fecha de Nacimiento</mat-label>
+            <input type="date" matInput placeholder="" formControlName="username">
+            <mat-hint></mat-hint>
+            <!--Esto es una pequeña etiqueta para sugerencias de texto-->
+            <ng-container *ngIf="">
+              <div class="errorValidacion" *ngIf="">Debes introducir
+                algún valor
+              </div>
+              <div class="errorValidacion" *ngIf="">Debe tener al
+                menos 5
+                caracteres</div>
+            </ng-container>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input type="text" matInput placeholder="Tu email" formControlName="email">
+            <ng-container *ngIf="">
+              <div class="errorValidacion" *ngIf="">Debes introducir una
+                email
+              </div>
+              <div class="errorValidacion" *ngIf="">Debe tener formato de
+                email
+              </div>
+            </ng-container>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Nivel de Entrenamiento</mat-label>
+            <mat-select >
+              <mat-option >Principiante (menos de un año)</mat-option>
+              <mat-option >Medio (entre 1 y 2 años)</mat-option>
+              <mat-option >Avanzado (más de 2 años)</mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+          <mat-form-field appearance="fill">
+            <mat-label>Contraseña</mat-label>
+            <input type="text" matInput placeholder="Tu contraseña" formControlName="password">
+            <ng-container *ngIf="">
+              <div class="errorValidacion" *ngIf="">Debes introducir
+                una contraseña
+              </div>
+            </ng-container>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Información Adicional</mat-label>
+            <textarea matInput placeholder="¿Tienes alguna enfermedad o necesitamos saber algo más sobre tí?" formControlName="comentario"></textarea>
+            <ng-container *ngIf="">
+              <div class="errorValidacion" *ngIf="">Debes formular
+                tu pregunta
+              </div>
+            </ng-container>
+          </mat-form-field>
+          
+          <mat-card-actions class="botonLogin">
+            <button mat-stroked-button color="primary" [disabled]="" class="temaBtnLogin"
+             >Registrar</button>
+            <button mat-stroked-button color="primary" class="temaBtnLogin">Volver</button>
+          </mat-card-actions>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <app-footer></app-footer>
