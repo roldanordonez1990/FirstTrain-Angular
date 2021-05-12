@@ -1,6 +1,11 @@
 .color{
   background-color: black;
 }
+
+a.webfooter{
+  color: #bfbfbf;;
+}
+
 .icono{
 color: white;
  position: relative;
