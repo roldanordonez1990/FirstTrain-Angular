@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DialogosService } from '../../services/dialogos.service';
 
 @Component({
   selector: 'app-registro',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router,
+    private dialogosService: DialogosService) { }
 
   ngOnInit(): void {
   }
+
+  volverAwelcome() {
+    this.dialogosService.abrirDialogCargando();
+    this.router.navigate(['/welcome']);
+    this.dialogosService.cerrarDialogo();
+
+  }
+
 
 }

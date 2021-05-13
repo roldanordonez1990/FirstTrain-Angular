@@ -1,0 +1,34 @@
+.errorValidacion {
+    margin-top: 5px;
+    color: #9e7b00;
+}
+
+.loginCard {
+    max-width: 520px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+.contenedorLogin{
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botonLogin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Farro', sans-serif;
+}
+
+
+.temaBtnLogin{
+    background-color:#453b1a;
+    color: white;
+    font-family: 'Farro', sans-serif;
+}
+    

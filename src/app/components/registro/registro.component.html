@@ -6,6 +6,8 @@
       </mat-card-header>
       <mat-card-content>
         <form >
+            <div class="row"> <!--Inicio de la row-->
+                <div class="col-lg-6"> <!--Inicio de la primera col6-->
           <mat-form-field appearance="fill">
             <mat-label>Nombre</mat-label>
             <input type="text" matInput placeholder="Tu nombre de usuario" formControlName="username">
@@ -74,7 +76,8 @@
                 caracteres</div>
             </ng-container>
           </mat-form-field>
-
+        </div> <!--Fin de la primera col6-->
+        <div class="col-lg-6">
           <mat-form-field appearance="fill">
             <mat-label>Teléfono</mat-label>
             <input type="text" matInput placeholder="Tu teléfono particular" formControlName="username">
@@ -136,22 +139,24 @@
               </div>
             </ng-container>
           </mat-form-field>
-
+        </div> <!--Fin de la segunda col6-->
+    </div> <!--Fin de la row-->
           <mat-form-field appearance="fill">
             <mat-label>Información Adicional</mat-label>
-            <textarea matInput placeholder="¿Tienes alguna enfermedad o necesitamos saber algo más sobre tí?" formControlName="comentario"></textarea>
+            <textarea matInput placeholder="¿Tienes alguna enfermedad o algo que necesitamos saber?" formControlName="comentario"></textarea>
             <ng-container *ngIf="">
               <div class="errorValidacion" *ngIf="">Debes formular
                 tu pregunta
               </div>
             </ng-container>
           </mat-form-field>
-          
-          <mat-card-actions class="botonLogin">
-            <button mat-stroked-button color="primary" [disabled]="" class="temaBtnLogin"
+   
+          <mat-card-actions class="botonLogin ">
+            <button mat-stroked-button color="primary" [disabled]="" class="temaBtnLogin mr-3"
              >Registrar</button>
-            <button mat-stroked-button color="primary" class="temaBtnLogin">Volver</button>
+            <a href="welcome"><button mat-stroked-button color="primary" class="temaBtnLogin" (click)="volverAwelcome()">Volver</button></a>
           </mat-card-actions>
+       
         </form>
       </mat-card-content>
     </mat-card>

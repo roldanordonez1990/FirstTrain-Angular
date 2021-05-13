@@ -17,9 +17,10 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-
-
-
+import { DialogosComponent } from './components/dialogos/dialogos.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -28,7 +29,9 @@ import { MatSelectModule } from '@angular/material/select';
     WelcomeComponent,
     NavigationHeaderComponent,
     FooterComponent,
-    RegistroComponent
+    RegistroComponent,
+    DialogosComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +45,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatExpansionModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
