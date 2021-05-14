@@ -2,45 +2,45 @@
 <div class="contenedorLogin mt-4 mb-3">
     <mat-card class="loginCard">
       <mat-card-header class="botonLogin">
-        <mat-card-title>Log-in MoneyApp</mat-card-title>
+        <mat-card-title class="tipoletra">Log in</mat-card-title>
       </mat-card-header>
-      <img mat-card-image src="https://www.corporatecomplianceinsights.com/wp-content/uploads/2018/10/CC-padlock.jpg"
-        alt="">
+      <img mat-card-image src="../../assets/images/nuevalogin1.jpg"
+        alt="loginimagen" class="medidaimagenlogin">
       <mat-card-content>
         <form >
           <mat-form-field appearance="fill">
-            <mat-label>Usuario</mat-label>
-            <input matInput placeholder="Tu nombre de usuario" formControlName="username">
+            <mat-label>DNI</mat-label>
+            <input matInput placeholder="Tu DNI con letra" formControlName="dni">
             <mat-hint></mat-hint>
             <!--Esto es una pequeña etiqueta para sugerencias de texto-->
-            <ng-container *ngIf="">
-              <div class="errorValidacion" *ngIf="">Debes introducir algún
+            <ng-container *ngIf="loginForm.controls.dni.errors != undefined">
+              <div class="errorValidacion" *ngIf="loginForm.controls.dni.errors.required">Debes introducir algún
                 valor
               </div>
-              <div class="errorValidacion" *ngIf="">Debe tener al menos 5
+              <div class="errorValidacion" *ngIf="loginForm.controls.dni.errors.minlength">Debe tener al menos 5
                 caracteres</div>
             </ng-container>
           </mat-form-field>
   
           <mat-form-field appearance="fill">
             <mat-label>Contraseña</mat-label>
-            <input matInput 
+            <input matInput [type]="ocultarPassword ? 'password' : 'text'" formControlName="password"
               placeholder="Tu contraseña">
-            <button mat-icon-button matSuffix >
-              <mat-icon></mat-icon>
+            <button mat-icon-button matSuffix (click)="ocultarPassword = !ocultarPassword">
+              <mat-icon>{{ocultarPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
-            <ng-container *ngIf="">
-              <div class="errorValidacion" *ngIf="">Debes introducir una
+            <ng-container *ngIf="loginForm.controls.password.errors != undefined">
+              <div class="errorValidacion" *ngIf="loginForm.controls.password.errors.required">Debes introducir una
                 contraseña
               </div>
             </ng-container>
           </mat-form-field>
         </form>
       </mat-card-content>
-      <mat-card-actions class="botonLogin">
-        <button mat-stroked-button color="primary" [disabled]=""
-          >Entrar</button>
-        <button mat-stroked-button color="primary" class="temaBtnLogin mb-1">Registro</button>
+      <mat-card-actions class="botonLogin mb-2">
+        <button mat-stroked-button color="primary" [disabled]="" class="temaBtnLogin mr-3"
+         >Entrar</button>
+        <a href="welcome"><button mat-stroked-button color="primary" class="temaBtnLogin" (click)="volverAwelcome()">Volver</button></a>
       </mat-card-actions>
     </mat-card>
   </div>

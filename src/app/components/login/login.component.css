@@ -5,7 +5,15 @@
 
 .loginCard {
     max-width: 520px;
+    
 }
+
+.tipoLetra{
+    
+    font-family: 'Playfair Display', serif;
+   
+}
+
 
 mat-form-field {
     width: 100%;
@@ -22,13 +30,14 @@ mat-form-field {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Farro', sans-serif;
+    font-family: 'Playfair Display', serif;
+   
 }
 
 
 .temaBtnLogin{
-    background-color:#453b1a;
+    background-color:black;
     color: white;
-    font-family: 'Farro', sans-serif;
+    font-family: 'Playfair Display', serif;
 }
     
