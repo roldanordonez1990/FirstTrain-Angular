@@ -8,9 +8,10 @@
         alt="loginimagen" class="medidaimagenlogin">
       <mat-card-content>
         <form [formGroup]="loginForm">
+          <!--Campo del dni-->
           <mat-form-field appearance="fill">
             <mat-label>DNI</mat-label>
-            <input matInput placeholder="Tu DNI con letra" formControlName="dni">
+            <input matInput placeholder="Tu dni con letra" formControlName="dni">
             <mat-hint></mat-hint>
             <!--Esto es una pequeña etiqueta para sugerencias de texto-->
             <ng-container *ngIf="loginForm.controls.dni.errors != undefined">
@@ -23,7 +24,9 @@
                   caracteres</div>
             </ng-container>
           </mat-form-field>
-  
+          <!--Fin del campo dni-->
+
+          <!--Campo de la contraseña-->
           <mat-form-field appearance="fill">
             <mat-label>Contraseña</mat-label>
             <input matInput [type]="ocultarPassword ? 'password' : 'text'" formControlName="password"
@@ -35,12 +38,15 @@
               <div class="errorValidacion" *ngIf="loginForm.controls.password.errors.required">Debes introducir una
                 contraseña
               </div>
+              <div class="errorValidacion" *ngIf="loginForm.controls.password.errors.minlength">Debes tener al menos 4 caracteres
+              </div>
             </ng-container>
           </mat-form-field>
+          <!--Fin del campo contraseña-->
         </form>
       </mat-card-content>
       <mat-card-actions class="botonLogin mb-2">
-        <button mat-stroked-button color="primary" [disabled]="" class="temaBtnLogin mr-3"
+        <button mat-stroked-button color="primary" [disabled]="loginForm.invalid" class="temaBtnLogin mr-3" (click)="autenticarUsuario()"
          >Entrar</button>
         <a href="welcome"><button mat-stroked-button color="primary" class="temaBtnLogin" (click)="volverAwelcome()">Volver</button></a>
       </mat-card-actions>

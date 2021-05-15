@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       dni: new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
-      password: new FormControl('', [Validators.required])
+      password: new FormControl('', [Validators.required, Validators.required, Validators.minLength(4)])
     });
   }
 
@@ -31,25 +31,25 @@ export class LoginComponent implements OnInit {
     // Utilizo el "UsuarioService" para enviar los datos de logado y subscribirme a la respuesta del 
     // servidor
     this.dialogosService.abrirDialogCargando();
-    this.usuarioService.autenticaUsuario(this.loginForm.controls.username.value,
+    this.usuarioService.autenticaUsuario(this.loginForm.controls.dni.value,
       this.loginForm.controls.password.value).subscribe(data => {
-        //        console.log(data);
+        
         if (data.jwt != undefined) {
           this.autenticadorJwtService.almacenaJWT(data.jwt);
           console.log('Datos correctos');
-          this.router.navigate(['/listadoCometidos']);
+          this.router.navigate(['/contenido']);
           this.dialogosService.cerrarDialogo();
-          this.usuarioService.emitirNuevoCambioEnUsuarioAutenticado(); // Emito evento de cambio en usuario autenticado
+          //this.usuarioService.emitirNuevoCambioEnUsuarioAutenticado(); // Emito evento de cambio en usuario autenticado
 
         }
         else {
-          this.dialogosService.abrirDialogError("Datos introducidos incorrectos");
+          this.dialogosService.abrirDialogError("Datos incorrectos");
           console.log('Datos incorrectos');
         }
       });
   }
 
-
+/////////////////////////////////////////////////////
   volverAwelcome() {
     this.dialogosService.abrirDialogCargando();
     this.router.navigate(['/welcome']);

@@ -1,0 +1,54 @@
+.example-spacer{
+    flex: 1 1 auto;
+}
+
+.colorMenuButton{
+
+    color: #fff;
+}
+
+.mat-toolbar.mat-primary {
+    background: #000000;
+    color: #fff;
+  }
+
+span.tipoLetra{
+    
+    font-family: 'Playfair Display', serif;
+   
+}
+nav{
+    background-color: black !important;
+}
+
+.navbar-light .navbar-toggler {
+    background-color: white;
+    
+  }
+
+.nav-link{
+    color: white !important;
+}
+
+.tipoLetra{
+    
+    font-family: 'Playfair Display', serif;
+    font-size: large;
+}
+
+
+a {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;
+}
+
+a:hover, a:focus {
+    background-size: 100% 2px;
+}
+
+
+ 

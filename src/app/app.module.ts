@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpInterceptorService } from './services/http-interceptor.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
@@ -22,6 +23,8 @@ import { DialogosComponent } from './components/dialogos/dialogos.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoginComponent } from './components/login/login.component';
+import { ContenidoComponent } from './components/contenido/contenido.component';
+import { NavigationContenidoComponent } from './components/navigation-contenido/navigation-contenido.component';
 
 
 @NgModule({
@@ -32,7 +35,9 @@ import { LoginComponent } from './components/login/login.component';
     FooterComponent,
     RegistroComponent,
     DialogosComponent,
-    LoginComponent
+    LoginComponent,
+    ContenidoComponent,
+    NavigationContenidoComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +57,8 @@ import { LoginComponent } from './components/login/login.component';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+
+  providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
