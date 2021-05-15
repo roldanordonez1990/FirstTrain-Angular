@@ -7,18 +7,20 @@
       <img mat-card-image src="../../assets/images/nuevalogin1.jpg"
         alt="loginimagen" class="medidaimagenlogin">
       <mat-card-content>
-        <form >
+        <form [formGroup]="loginForm">
           <mat-form-field appearance="fill">
             <mat-label>DNI</mat-label>
             <input matInput placeholder="Tu DNI con letra" formControlName="dni">
             <mat-hint></mat-hint>
             <!--Esto es una pequeña etiqueta para sugerencias de texto-->
             <ng-container *ngIf="loginForm.controls.dni.errors != undefined">
-              <div class="errorValidacion" *ngIf="loginForm.controls.dni.errors.required">Debes introducir algún
-                valor
+              <div class="errorValidacion" *ngIf="loginForm.controls.dni.errors.required">Debes introducir tu
+                dni
               </div>
-              <div class="errorValidacion" *ngIf="loginForm.controls.dni.errors.minlength">Debe tener al menos 5
+              <div class="errorValidacion" *ngIf="loginForm.controls.dni.errors.minlength">Debe tener mínimo 9
                 caracteres</div>
+                <div class="errorValidacion" *ngIf="loginForm.controls.dni.errors.maxlength">Debe tener máximo 9
+                  caracteres</div>
             </ng-container>
           </mat-form-field>
   
