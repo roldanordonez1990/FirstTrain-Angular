@@ -8,21 +8,74 @@
   <a class="navbar-brand" href="#">
     <img src="../../assets/images/logoprincipal.jpg" width="70px;"  alt="">
   </a>
-  
-  <!-- enlaces -->
-  <div class="collapse navbar-collapse mr-1 " id="opciones">   
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link tipoLetra" href="login">Log-in</a>
+  <ng-container *ngIf="(usuarioAutenticado != undefined); else elseBlock">
+     <!-- enlaces -->
+     <div class="collapse navbar-collapse mr-1 " id="opciones">   
+      <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link tipoLetra" href="">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link tipoLetra" href="contenido">Contenido</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link tipoLetra" href="registro">Registro</a>
-      </li>
-               
-    </ul>
-  </div>
+        <li class="nav-item">
+          <a class="nav-link tipoLetra" href="">Foro</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link tipoLetra" href="">Multimedia</a>
+        </li>          
+      </ul>
+    </div>
+  </ng-container>
+ 
 
+<ng-template #elseBlock>
+    <div class="collapse navbar-collapse ml-2 mr-1 " id="opciones">   
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link tipoLetra" href="welcome">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link tipoLetra" href="login">Log-in</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link tipoLetra" href="registro">Registro</a>
+        </li>
+                 
+      </ul>
+    </div>
+</ng-template>
+
+<ng-template #elseBlock2>
   <h6 class="tipoLetra mt-2 mr-2" style="color: #bfbfbf;">First Train - Entrenamiento Personal</h6>
+</ng-template>
+<!--
+  <h6 class="tipoLetra mt-2 mr-2" style="color: #bfbfbf;">First Train - Entrenamiento Personal</h6>
+  -->
+  <ng-container *ngIf="(usuarioAutenticado != undefined); else elseBlock2">
+    <span class=" pr-1 tipoLetra"style="color: #bfbfbf;">Bienvenid@ a First Train, 
+      {{usuarioAutenticado}} {{usuarioAutenticado1}}</span>
+  </ng-container>
+
+  <ng-container>
+    <button mat-icon-button color="accent" [matMenuTriggerFor]="menu">
+      <!--<app-imagen-usuario [usuario]="usuarioAutenticado" [width]="50" [height]="50"></app-imagen-usuario>-->
+      <mat-icon class="colorMenuButton">more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>account_circle</mat-icon>Modificar mis datos
+      </button>
+      <button mat-menu-item>
+        <mat-icon>not_listed_location</mat-icon>
+        <span>¿Quiénes somos?</span>
+      </button>
+      <button mat-menu-item (click)="abandonarSesion()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Cerrar sesión</span>
+      </button>
+    </mat-menu>
+  </ng-container>
 
 </nav>
 <!--Script JQuery para cerrar el menú-->

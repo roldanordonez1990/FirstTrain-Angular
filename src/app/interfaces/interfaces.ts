@@ -4,6 +4,8 @@ export interface DatosConJwt {
 
 
 export interface Usuario{
+    nombre: string;
+    apellidos: string;
     dni: string;
     password: string;
    

@@ -24,8 +24,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { LoginComponent } from './components/login/login.component';
 import { ContenidoComponent } from './components/contenido/contenido.component';
-import { NavigationContenidoComponent } from './components/navigation-contenido/navigation-contenido.component';
-
 
 @NgModule({
   declarations: [
@@ -37,7 +35,7 @@ import { NavigationContenidoComponent } from './components/navigation-contenido/
     DialogosComponent,
     LoginComponent,
     ContenidoComponent,
-    NavigationContenidoComponent
+    
   ],
   imports: [
     BrowserModule,

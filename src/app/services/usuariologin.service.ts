@@ -65,11 +65,7 @@ export class UsuariologinService {
   /**
    * 
    */
-  emitirNuevoCambioEnUsuarioAutenticado() {
-    this.getUsuarioAutenticado(true).subscribe(usuarioAutenticado => {
-      this.cambiosEnUsuarioAutenticado.emit(usuarioAutenticado);
-    });
-  }
+ 
 
 
 }
