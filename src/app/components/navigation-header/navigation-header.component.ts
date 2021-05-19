@@ -6,6 +6,8 @@ import { NavigationHeaderService } from 'src/app/services/navigation-header.serv
 import { UsuariologinService } from 'src/app/services/usuariologin.service';
 import { DialogosService } from '../../services/dialogos.service';
 import { DialogTypes } from '../../components/dialogos/dialogos-general';
+import { RegistroService } from 'src/app/services/registro.service';
+
 
 @Component({
   selector: 'app-navigation-header',
@@ -18,7 +20,7 @@ export class NavigationHeaderComponent implements OnInit {
   usuarioAutenticado1: Usuario[]
   constructor(private navigationHeaderService: NavigationHeaderService,
     private usuariosService: UsuariologinService, private router: Router,
-    private dialogosService: DialogosService, private autenticadorJwtService: JwtService) { }
+    private dialogosService: DialogosService, private autenticadorJwtService: JwtService, private registroServ: RegistroService) { }
 
   ngOnInit(): void {
 

@@ -44,26 +44,12 @@
             <!--Esto es una pequeña etiqueta para sugerencias de texto-->
             <ng-container *ngIf="registroForm.controls.dni.errors != undefined">
               <div class="errorValidacion" *ngIf="registroForm.controls.dni.errors.required">Debes introducir
-                algún valor
+                algún dni
               </div>
               <div class="errorValidacion" *ngIf="registroForm.controls.dni.errors.minlength">Debe tener al
                 menos 9
                 caracteres</div>
             </ng-container>
-          </mat-form-field>
-
-        <mat-form-field appearance="fill">
-            <mat-label>Sexo</mat-label>
-            <mat-select formControlName="sexo">
-              <ng-container *ngIf="registroForm.controls.sexo.errors != undefined">
-                <div class="errorValidacion ml-3" *ngIf="registroForm.controls.sexo.errors.required">Debes seleccionar
-                  un sexo
-                </div>
-              </ng-container>
-              <mat-option >Hombre</mat-option>
-              <mat-option >Mujer</mat-option>
-              <mat-option >Otro</mat-option>
-            </mat-select>
           </mat-form-field>
 
           <mat-form-field appearance="fill">
@@ -73,7 +59,7 @@
             <!--Esto es una pequeña etiqueta para sugerencias de texto-->
             <ng-container *ngIf="registroForm.controls.direccion.errors != undefined">
               <div class="errorValidacion" *ngIf="registroForm.controls.direccion.errors.required">Debes introducir
-                algún valor
+                alguna dirección
               </div>
             </ng-container>
           </mat-form-field>
@@ -96,12 +82,12 @@
           </mat-form-field>
 
           <mat-form-field appearance="fill">
-            <mat-label>Fecha de Nacimiento</mat-label>
-            <input type="date" matInput placeholder="" formControlName="fecha">
+            <mat-label>Edad</mat-label>
+            <input type="text" matInput placeholder="" formControlName="edad">
             <mat-hint></mat-hint>
             <!--Esto es una pequeña etiqueta para sugerencias de texto-->
-            <ng-container *ngIf="registroForm.controls.telefono.errors != undefined">
-              <div class="errorValidacion" *ngIf="registroForm.controls.fecha.errors.required">Debes introducir
+            <ng-container *ngIf="registroForm.controls.edad.errors != undefined">
+              <div class="errorValidacion" *ngIf="registroForm.controls.edad.errors.required">Debes introducir
                 una fecha
               </div>
             </ng-container>
@@ -120,20 +106,20 @@
             </ng-container>
           </mat-form-field>
 
+
           <mat-form-field appearance="fill">
             <mat-label>Nivel de Entrenamiento</mat-label>
-            <mat-select formControlName="nivel">
+            <mat-select formControlName="nivel" >
               <ng-container *ngIf="registroForm.controls.nivel.errors != undefined">
                 <div class="errorValidacion ml-3" *ngIf="registroForm.controls.nivel.errors.required">Debes seleccionar
                   un nivel
                 </div>
               </ng-container>
-              <mat-option >Principiante (menos de un año)</mat-option>
-              <mat-option >Medio (entre 1 y 2 años)</mat-option>
-              <mat-option >Avanzado (más de 2 años)</mat-option>
+              <mat-option *ngFor="let niveles of listadoNivelesEntrenamiento" [value]="niveles.idniveles">
+                {{niveles.nivel_corto}}</mat-option>
             </mat-select>
           </mat-form-field>
-  
+          
           <mat-form-field appearance="fill">
             <mat-label>Contraseña</mat-label>
             <input type="text" matInput placeholder="Tu contraseña" formControlName="password">
@@ -146,13 +132,13 @@
         </div> <!--Fin de la segunda col6-->
         </div> <!--Fin de la row-->
 
-          <mat-form-field appearance="fill">
-            <mat-label>Información Adicional</mat-label>
-            <textarea matInput placeholder="¿Tienes alguna enfermedad o algo que necesitemos saber?"></textarea>
-          </mat-form-field>
-   
+        
+        <mat-form-field class="fill">
+          <mat-label>Información Adicional</mat-label>
+          <textarea matInput placeholder="¿Tienes alguna enfermedad o algo que necesitemos saber?" formControlName="info"></textarea>
+        </mat-form-field>
           <mat-card-actions class="botonLogin ">
-            <button mat-stroked-button color="primary" [disabled]="registroForm.invalid" class="temaBtnLogin mr-3"
+            <button mat-stroked-button color="primary" [disabled]="registroForm.invalid"  class="temaBtnLogin mr-3" (click)="nuevoUsuarioRegistrado()"
              >Registrar</button>
             <a href="welcome"><button mat-stroked-button color="primary" class="temaBtnLogin" (click)="volverAwelcome()">Volver</button></a>
           </mat-card-actions>

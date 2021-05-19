@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { DialogosService } from '../../services/dialogos.service';
+import { DialogTypes } from '../../components/dialogos/dialogos-general';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-
+import { Nivel_Entrenamiento } from '../../interfaces/interfaces';
+import { RegistroService } from 'src/app/services/registro.service';
 
 @Component({
   selector: 'app-registro',
@@ -12,23 +14,29 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class RegistroComponent implements OnInit {
 
   registroForm: FormGroup; 
+  listadoNivelesEntrenamiento: Nivel_Entrenamiento[];
 
   constructor(private router: Router,
-    private dialogosService: DialogosService) { }
+    private dialogosService: DialogosService, private registroServi: RegistroService) { }
 
   ngOnInit(): void {
     this.registroForm = new FormGroup({
       username: new FormControl ('', [Validators.required, Validators.minLength(4)]),
       apellidos: new FormControl ('', [Validators.required]),
       dni: new FormControl('', [Validators.required, Validators.minLength(9)]),
-      password: new FormControl('', [Validators.required]),
       direccion : new FormControl('', [Validators.required]),
       telefono: new FormControl('', [Validators.required, Validators.minLength(9)]),
-      fecha: new FormControl('', [Validators.required]),
+      edad: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
-      sexo: new FormControl('', [Validators.required]),
-      nivel: new FormControl('', [Validators.required])
+      password: new FormControl('', [Validators.required]),
+      nivel: new FormControl('', [Validators.required]),
+      info: new FormControl('')
+    });
 
+    this.registroServi.getTodosLosNivelesEntrenamiento().subscribe(data => {
+
+      this.listadoNivelesEntrenamiento = data['niveles'];
+      console.log(this.registroServi);
     });
   }
 
@@ -39,5 +47,27 @@ export class RegistroComponent implements OnInit {
 
   }
 
+  /**
+   * 
+   */
+   nuevoUsuarioRegistrado() {
+    this.dialogosService.abrirDialogCargando();
+    this.registroServi.registroNuevoUsuario(this.registroForm.controls.username.value,
+      this.registroForm.controls.apellidos.value, this.registroForm.controls.dni.value, 
+      this.registroForm.controls.email.value, this.registroForm.controls.telefono.value, 
+      this.registroForm.controls.direccion.value, this.registroForm.controls.edad.value,
+      this.registroForm.controls.nivel.value, this.registroForm.controls.password.value,
+      this.registroForm.controls.info.value).subscribe(data => {
+        //        console.log(data);
+        //this.dialogosService.cerrarDialogo();
+        //window.location.reload();
+        this.dialogosService.abrirDialogConfirmacion("¡Registro correcto! Loguéate para entrar").subscribe(opcionElegida => {
+          if (opcionElegida == DialogTypes.RESPUESTA_ACEPTAR) {
+    
+            this.router.navigate(['/login']);
+          }
+        });
+      });
+  }
 
 }

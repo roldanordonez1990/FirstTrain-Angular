@@ -11,7 +11,6 @@ export class ContenidoService {
   usuarioAutenticado: Usuario[];
   constructor(private http: HttpClient) { }
 
-
   getDatosUsuario(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>('/usuario/getDatos').pipe(
       tap(dataUsu => {

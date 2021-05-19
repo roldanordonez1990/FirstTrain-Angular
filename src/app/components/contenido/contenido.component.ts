@@ -25,9 +25,10 @@ export class ContenidoComponent implements OnInit {
       console.log("HOLA" +usuario);
       if (usuario == null){
         this.router.navigate(['/login']);
-        console.log("PAYASOOOOOOOO NO ENTRAS");
+        console.log("NO ENTRAS");
       }
       
+      /*
       else {
         this.contenidoService.getDatosUsuario().subscribe(data => {
           this.usuarioAutenticado = data['nombre'];
@@ -37,7 +38,9 @@ export class ContenidoComponent implements OnInit {
         });
     
       }
+      */
     });
+
   }
 
 }
