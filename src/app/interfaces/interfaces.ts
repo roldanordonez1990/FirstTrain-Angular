@@ -2,7 +2,6 @@ export interface DatosConJwt {
     jwt: string;
 } 
 
-
 export interface Usuario{
     nombre: string;
     apellidos: string;
@@ -16,13 +15,27 @@ export interface Usuario{
     info: string;
    
 }
-
 export interface Nivel_Entrenamiento{
 
     idniveles: number;
     nivel_corto: string;
     descripcion_nivel: string;
+}
 
-   
+export interface Reserva{
+
+    id_hora: number;
+    id_usu: number;
+    plazas: number;
+    fecha: Date;
+    activo: boolean;
+}
+
+export interface Horario{
+
+    id_horario: number;
+    horas: string;
+    id_actividad: number;
+    disponible: boolean;
 }
 

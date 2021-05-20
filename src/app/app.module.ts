@@ -22,6 +22,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { DialogosComponent } from './components/dialogos/dialogos.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTableModule } from '@angular/material/table';
 import { LoginComponent } from './components/login/login.component';
 import { ContenidoComponent } from './components/contenido/contenido.component';
 
@@ -53,7 +54,8 @@ import { ContenidoComponent } from './components/contenido/contenido.component';
     MatDialogModule,
     MatProgressSpinnerModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule
   ],
 
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }],

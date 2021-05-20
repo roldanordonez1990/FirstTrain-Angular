@@ -26,8 +26,8 @@
           </mat-form-field>
 
           <mat-form-field appearance="fill">
-            <mat-label>Apellidos</mat-label>
-            <input type="text" matInput placeholder="Tus apellidos" formControlName="apellidos">
+            <mat-label>Apellido</mat-label>
+            <input type="text" matInput placeholder="Tus primer apellido" formControlName="apellidos">
             <mat-hint></mat-hint>
             <!--Esto es una pequeña etiqueta para sugerencias de texto-->
             <ng-container *ngIf="registroForm.controls.apellidos.errors != undefined">
@@ -127,6 +127,9 @@
               <div class="errorValidacion" *ngIf="registroForm.controls.password.errors.required">Debes introducir
                 una contraseña
               </div>
+              <div class="errorValidacion" *ngIf="registroForm.controls.password.errors.minlength">Debe tener al
+                menos 5
+                caracteres</div>
             </ng-container>
           </mat-form-field>
         </div> <!--Fin de la segunda col6-->
