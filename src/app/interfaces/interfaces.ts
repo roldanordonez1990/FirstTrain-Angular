@@ -3,6 +3,7 @@ export interface DatosConJwt {
 } 
 
 export interface Usuario{
+    id_usuario: number;
     nombre: string;
     apellidos: string;
     dni: string;
@@ -29,6 +30,7 @@ export interface Reserva{
     plazas: number;
     fecha: Date;
     activo: boolean;
+    sumaHoras : number;
 }
 
 export interface Horario{
@@ -37,5 +39,6 @@ export interface Horario{
     horas: string;
     id_actividad: number;
     disponible: boolean;
+    sumaHoras : number;
 }
 
