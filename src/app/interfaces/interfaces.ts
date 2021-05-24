@@ -4,6 +4,7 @@ export interface DatosConJwt {
 
 export interface Usuario{
     id_usuario: number;
+    rol: number;
     nombre: string;
     apellidos: string;
     dni: string;
@@ -25,12 +26,8 @@ export interface Nivel_Entrenamiento{
 
 export interface Reserva{
 
-    id_hora: number;
-    id_usu: number;
-    plazas: number;
-    fecha: Date;
+    id_hora: number[];
     activo: boolean;
-    sumaHoras : number;
 }
 
 export interface Horario{

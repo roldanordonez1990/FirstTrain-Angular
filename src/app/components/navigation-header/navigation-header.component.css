@@ -37,6 +37,11 @@ nav{
     font-size: large;
 }
 
+.tipoLetra2{
+    font-family: 'Playfair Display', serif;
+    font-size: medium;
+}
+
 
 a {
     text-decoration: none;

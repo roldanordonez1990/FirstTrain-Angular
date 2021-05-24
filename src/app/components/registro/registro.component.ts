@@ -21,7 +21,7 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit(): void {
     this.registroForm = new FormGroup({
-      username: new FormControl ('', [Validators.required, Validators.minLength(4)]),
+      username: new FormControl ('', [Validators.required, Validators.minLength(3)]),
       apellidos: new FormControl ('', [Validators.required]),
       dni: new FormControl('', [Validators.required, Validators.minLength(9)]),
       direccion : new FormControl('', [Validators.required]),

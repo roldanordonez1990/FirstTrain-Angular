@@ -18,6 +18,8 @@ export class NavigationHeaderComponent implements OnInit {
 
   usuarioAutenticado: Usuario[] // Guardo el usuario autenticado
   usuarioAutenticado1: Usuario[]
+  usuarioAutenticado2: number;
+
   constructor(private navigationHeaderService: NavigationHeaderService,
     private usuariosService: UsuariologinService, private router: Router,
     private dialogosService: DialogosService, private autenticadorJwtService: JwtService, private registroServ: RegistroService) { }
@@ -26,6 +28,7 @@ export class NavigationHeaderComponent implements OnInit {
 
         this.navigationHeaderService.getDatosUsuario().subscribe(data => {
           this.usuarioAutenticado = data['nombre'];
+          this.usuarioAutenticado2 = data['rol'];
           this.usuarioAutenticado1 = data['apellidos'];
          console.log("hola soy tu amigo");
          console.log(this.usuarioAutenticado);

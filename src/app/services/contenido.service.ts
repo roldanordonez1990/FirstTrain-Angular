@@ -11,8 +11,8 @@ import { Reserva } from 'src/app/interfaces/interfaces';
 })
 export class ContenidoService {
 
+  reservaComprobada: Reserva[];
   usuarioAutenticado: Usuario[];
-  reservas: Reserva[];
   constructor(private http: HttpClient) { }
 /**
  * 
@@ -43,19 +43,28 @@ export class ContenidoService {
    * 
    */
 
-   nuevaReservaPorUsuario(id_hora: number, id_usu: number): Observable<Reserva> {
+   nuevaReservaPorUsuario(id_hora: number): Observable<Reserva> {
     
-    var jsonObject = {
-      id_hora: id_hora,
-      id_usu: id_usu
-    };
-
     // Envío la petición http y devuelvo el Observable, para que cualquiera pueda subscribirse.
-    return this.http.post<Reserva>('/reserva/nuevaReserva', jsonObject).pipe(
-      tap(data => {
+    return this.http.get<Reserva>('/reserva/nuevaReserva?id_hora='+id_hora).pipe(
+      tap(data => console.log(id_hora)),
 
-      })
-    );
-  }
+      );
+  
+    }
+
+    /**
+     * 
+     */
+
+     comprobacionReserva(id_hora: number): Observable<Reserva> {
+    
+      // Envío la petición http y devuelvo el Observable, para que cualquiera pueda subscribirse.
+      return this.http.get<Reserva>('/reserva/comprobacion?id_hora='+id_hora).pipe(
+        tap(dataUsu => {
+          this.reservaComprobada = dataUsu['existe'];
+        })
+      );
+      }
   
 }
