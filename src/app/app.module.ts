@@ -25,6 +25,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { LoginComponent } from './components/login/login.component';
 import { ContenidoComponent } from './components/contenido/contenido.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ContenidoComponent } from './components/contenido/contenido.component';
     MatProgressSpinnerModule,
     HttpClientModule,
     ReactiveFormsModule,
-    MatTableModule
+    MatTableModule,
+    MatTabsModule
   ],
 
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }],
