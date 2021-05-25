@@ -4,6 +4,8 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { LoginComponent } from './components/login/login.component';
 import { ContenidoComponent } from './components/contenido/contenido.component';
+import { MisreservasComponent } from './components/misreservas/misreservas.component';
+
 
 
 const routes: Routes = [
@@ -11,7 +13,9 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'welcome', component: WelcomeComponent},
   {path: 'registro', component: RegistroComponent},
-  {path: 'contenido', component: ContenidoComponent}
+  {path: 'contenido', component: ContenidoComponent},
+  {path: 'misreservas', component: MisreservasComponent}
+
 
 ];
 

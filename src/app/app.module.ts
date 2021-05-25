@@ -26,6 +26,7 @@ import { MatTableModule } from '@angular/material/table';
 import { LoginComponent } from './components/login/login.component';
 import { ContenidoComponent } from './components/contenido/contenido.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import { MisreservasComponent } from './components/misreservas/misreservas.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     DialogosComponent,
     LoginComponent,
     ContenidoComponent,
+    MisreservasComponent,
     
   ],
   imports: [
