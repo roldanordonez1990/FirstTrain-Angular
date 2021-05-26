@@ -30,6 +30,14 @@ export interface Reserva{
     activo: boolean;
 }
 
+export interface Mezcla{
+
+    nombre: string;
+    apellidos: string;
+    horas: string;
+    fecha: Date;
+}
+
 export interface Horario{
 
     id_horario: number;
