@@ -6,3 +6,7 @@
     background-color: var(--primary-color,#27a800) !important;
     width: 159px !important; 
 }
+
+table{
+    width: 100%;
+}

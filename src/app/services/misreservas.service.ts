@@ -20,8 +20,8 @@ export class MisreservasService {
    * 
    * @returns 
    */
-  getDatosMisReservas(usuarioAutenticado: 1): Observable<Mezcla[]> {
-    return this.http.get<Mezcla[]>('/reserva/misReservas?id_usu='+usuarioAutenticado).pipe(
+  getDatosMisReservas(): Observable<Mezcla[]> {
+    return this.http.get<Mezcla[]>('/reserva/misReservas').pipe(
       tap(dataUsu => {
         this.resultadoTablaMezcla = dataUsu['misReservas'];
       })
@@ -39,6 +39,32 @@ export class MisreservasService {
       })
     );
   }
+
+    /**
+   * 
+   */
+
+     deleteReservas(id_reservas: number): Observable<Reserva> {
+
+      return this.http.delete<Reserva>('/reserva/delete?id_reservas=' + id_reservas).pipe(
+        tap(data => console.log(id_reservas)),
+  
+      );
+  
+    }
+
+      /**
+   * 
+   */
+
+       updateReservas(id_reservas: number, id_hora: number): Observable<Reserva> {
+
+        return this.http.get<Reserva>('/reserva/updateHora?id_reservas=' + id_reservas + '&id_hora=' + id_hora).pipe(
+          tap(data => console.log(id_reservas)),
+    
+        );
+    
+      }
 
 
 }

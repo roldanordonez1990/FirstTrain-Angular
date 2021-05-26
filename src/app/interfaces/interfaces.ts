@@ -36,6 +36,7 @@ export interface Mezcla{
     apellidos: string;
     horas: string;
     fecha: Date;
+    id_reservas: number;
 }
 
 export interface Horario{
