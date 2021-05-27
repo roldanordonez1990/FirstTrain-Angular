@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Mezcla } from '../../interfaces/interfaces';
 import { Usuario } from '../../interfaces/interfaces';
+import { Horario } from '../../interfaces/interfaces';
 import { MisreservasService } from 'src/app/services/misreservas.service';
 import { DialogosService } from '../../services/dialogos.service';
 
@@ -15,6 +16,7 @@ export class MisreservasComponent implements OnInit {
   dataSourceTabla: MatTableDataSource<Mezcla>
   columnas: string[] = ['Nombre', 'Apellidos', 'Fecha', 'Horario', 'Cambiar', 'Eliminar'];
   listadoMisReservas: Mezcla[];
+  listadoHorasDisponibles: Horario[];
 
 
   constructor(private misreservasService: MisreservasService, private dialogoService: DialogosService) { }
@@ -33,7 +35,15 @@ export class MisreservasComponent implements OnInit {
       this.dataSourceTabla = new MatTableDataSource<Mezcla>(data['misReservas']);
       //también se lo asignamos a este listado para poder usarlo
       this.listadoMisReservas = data['misReservas'];
-    })
+    });
+
+    /**
+     * 
+     */
+    this.misreservasService.getHorasDisponibles().subscribe(data => {
+      this.listadoHorasDisponibles = data['horasDisponibles'];
+      console.log(this.listadoHorasDisponibles);
+    });
     
   }
 
@@ -46,10 +56,9 @@ export class MisreservasComponent implements OnInit {
     this.misreservasService.deleteReservas(id_reservas).subscribe(data => {
       //        console.log(data);
     //this.dialogosService.cerrarDialogo();
-    this.dialogoService.abrirDialogInfo("¡Tu reserva ha sido realizada con éxito!").subscribe(opcionElegida => {
-          
-    });
+    this.dialogoService.abrirDialogInfo("¡Tu reserva ha sido eliminada!").subscribe(opcionElegida => {
       window.location.reload();
+        });
       
       });
   }
@@ -64,11 +73,11 @@ export class MisreservasComponent implements OnInit {
       //        console.log(data);
     //this.dialogosService.cerrarDialogo();
     this.dialogoService.abrirDialogInfo("¡Tu reserva ha sido actualizada!").subscribe(opcionElegida => {
-          
-    });
       window.location.reload();
-      
+
       });
+      
+    });
   }
 
 }

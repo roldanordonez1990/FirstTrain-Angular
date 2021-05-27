@@ -13,7 +13,7 @@
                   </ng-container> 
                   <ng-container matColumnDef="Disponible">
                     <th mat-header-cell *matHeaderCellDef class="text-center">Disponible</th> 
-                    <td mat-cell *matCellDef="let hora" class="text-center text-success pt-2"><ng-container *ngIf="hora.disponible == true else elseBlock"><mat-icon aria-hidden="false" aria-label="Example home icon">check_circle</mat-icon></ng-container></td> 
+                    <td mat-cell *matCellDef="let hora" class="text-center text-success pt-2"><ng-container *ngIf="hora.disponible == true else elseBlock"><mat-icon aria-hidden="false" aria-label="Example home icon">event_available</mat-icon></ng-container></td> 
                   </ng-container> 
                   <ng-container matColumnDef="Plazas Restantes">
                     <th mat-header-cell *matHeaderCellDef class="text-center pl-3">Modalidad</th> 
@@ -26,20 +26,19 @@
                       <mat-icon aria-hidden="false" aria-label="Example home icon">control_point</mat-icon>
                   </button></ng-container></td> 
                    
-
                   </ng-container> 
                   <tr mat-header-row *matHeaderRowDef="columnas"></tr>
                   <tr mat-row *matRowDef="let hora; columns: columnas;"></tr>
                 </table> 
                 </ng-container>
                 <ng-template #elseBlock>
-                  <td class="text-center text-danger pl-3"><mat-icon aria-hidden="false" aria-label="Example home icon">close</mat-icon></td>
+                  <td class="text-danger pl-3 w-responsive"><mat-icon aria-hidden="false" class="pl-4" aria-label="Example home icon">event_busy</mat-icon></td>
               </ng-template>
               <ng-template #elseBlock2>
                 <td class="text-center pl-3 pt-1"><mat-icon aria-hidden="false" aria-label="Example home icon">person</mat-icon></td>
               </ng-template>
               <ng-template #elseBlock3>
-                <td class="text-center text-danger pl-3 pt-1"><mat-icon aria-hidden="false" aria-label="Example home icon"></mat-icon></td>
+                <td class="text-center"></td>
               </ng-template>
             </div>
             <div class="col-md-5">

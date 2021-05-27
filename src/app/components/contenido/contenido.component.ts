@@ -77,7 +77,7 @@ export class ContenidoComponent implements OnInit {
         //this.dialogosService.cerrarDialogo();
         //window.location.reload();
         this.dialogosService.abrirDialogInfo("¡Tu reserva ha sido realizada con éxito!").subscribe(opcionElegida => {
-          
+          window.location.reload();
               });
           });
      }

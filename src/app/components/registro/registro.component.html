@@ -49,6 +49,7 @@
               <div class="errorValidacion" *ngIf="registroForm.controls.dni.errors.minlength">Debe tener al
                 menos 9
                 caracteres</div>
+                <div class="errorValidacion" *ngIf="registroForm.controls.dni.errors.maxlength">No puede tener más de 9 caracteres</div>
             </ng-container>
           </mat-form-field>
 

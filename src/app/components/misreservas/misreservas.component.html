@@ -30,15 +30,9 @@
             <mat-icon class="colorButtonUpdate" >update</mat-icon>
         </button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item [value]="1" (click)="updateReserva(hora.id_reservas, 1)">09:00-10:00</button>
-              <button mat-menu-item [value]="2" (click)="updateReserva(hora.id_reservas, 2)">10:00-11:00</button>
-              <button mat-menu-item [value]="3" (click)="updateReserva(hora.id_reservas, 3)">11:00-12:00</button>
-              <button mat-menu-item [value]="4" (click)="updateReserva(hora.id_reservas, 4)">16:00-17:00</button>
-              <button mat-menu-item [value]="5" (click)="updateReserva(hora.id_reservas, 5)">17:00-18:00</button>
-              <button mat-menu-item [value]="6" (click)="updateReserva(hora.id_reservas, 6)">18:00-19:00</button>
-              <button mat-menu-item [value]="7" (click)="updateReserva(hora.id_reservas, 7)">19:00-20:00</button>
-              <button mat-menu-item [value]="8" (click)="updateReserva(hora.id_reservas, 8)">20:00-21:00</button>
-              <button mat-menu-item [value]="9" (click)="updateReserva(hora.id_reservas, 9)">21:00-22:00</button>
+              <ng-container *ngFor="let h of listadoHorasDisponibles">
+              <button mat-menu-item [value]="h.id_horario" (click)="updateReserva(hora.id_reservas, h.id_horario)">{{h.horas}}</button>
+            </ng-container>
             </mat-menu></td> 
       </ng-container> 
       <ng-container matColumnDef="Eliminar" class="text-center">

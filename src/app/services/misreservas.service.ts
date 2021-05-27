@@ -5,6 +5,7 @@ import { tap } from 'rxjs/operators';
 import { Usuario } from 'src/app/interfaces/interfaces';
 import { Mezcla } from 'src/app/interfaces/interfaces';
 import { Reserva } from 'src/app/interfaces/interfaces';
+import { Horario } from 'src/app/interfaces/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class MisreservasService {
 
   resultadoTablaMezcla: Mezcla[];
   usuarioAutenticado: number;
+  listadoHorasDisponibles: Horario[];
 
   constructor(private http: HttpClient) { }
 
@@ -27,6 +29,18 @@ export class MisreservasService {
       })
     );
   }
+
+    /**
+   * 
+   * @returns 
+   */
+     getHorasDisponibles(): Observable<Horario[]> {
+      return this.http.get<Horario[]>('/todasLasHorasDisponibles/all').pipe(
+        tap(dataUsu => {
+          this.listadoHorasDisponibles = dataUsu['horasDisponibles'];
+        })
+      );
+    }
 
   /**
    * 
