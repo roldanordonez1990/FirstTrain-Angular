@@ -11,7 +11,7 @@ import { Horario } from 'src/app/interfaces/interfaces';
   providedIn: 'root'
 })
 export class MisreservasService {
-
+  reservaComprobada: Reserva[];
   resultadoTablaMezcla: Mezcla[];
   usuarioAutenticado: number;
   listadoHorasDisponibles: Horario[];
@@ -38,6 +38,14 @@ export class MisreservasService {
       return this.http.get<Horario[]>('/todasLasHorasDisponibles/all').pipe(
         tap(dataUsu => {
           this.listadoHorasDisponibles = dataUsu['horasDisponibles'];
+        })
+      );
+    }
+
+    getHoras(): Observable<Horario[]> {
+      return this.http.get<Horario[]>('/todasLasHoras/all').pipe(
+        tap(dataUsu => {
+          this.listadoHorasDisponibles = dataUsu['horas'];
         })
       );
     }
@@ -80,5 +88,19 @@ export class MisreservasService {
     
       }
 
+      /**
+       * 
+       * @param id_hora 
+       * @returns 
+       */
+      comprobacionReserva(id_hora: number): Observable<Reserva> {
+    
+        // Envío la petición http y devuelvo el Observable, para que cualquiera pueda subscribirse.
+        return this.http.get<Reserva>('/reserva/comprobacion?id_hora='+id_hora).pipe(
+          tap(dataUsu => {
+            this.reservaComprobada = dataUsu['existe'];
+          })
+        );
+        }
 
 }

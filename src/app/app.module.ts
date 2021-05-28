@@ -27,6 +27,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ContenidoComponent } from './components/contenido/contenido.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MisreservasComponent } from './components/misreservas/misreservas.component';
+import { ListadoComponent } from './components/listado/listado.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { MisreservasComponent } from './components/misreservas/misreservas.compo
     LoginComponent,
     ContenidoComponent,
     MisreservasComponent,
+    ListadoComponent,
     
   ],
   imports: [

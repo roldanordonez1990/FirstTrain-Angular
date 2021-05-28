@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Mezcla } from '../../interfaces/interfaces';
 import { Usuario } from '../../interfaces/interfaces';
 import { Horario } from '../../interfaces/interfaces';
+import { Reserva } from '../../interfaces/interfaces';
 import { MisreservasService } from 'src/app/services/misreservas.service';
 import { DialogosService } from '../../services/dialogos.service';
 
@@ -17,6 +18,7 @@ export class MisreservasComponent implements OnInit {
   columnas: string[] = ['Nombre', 'Apellidos', 'Fecha', 'Horario', 'Cambiar', 'Eliminar'];
   listadoMisReservas: Mezcla[];
   listadoHorasDisponibles: Horario[];
+  reservas: Reserva[];
 
 
   constructor(private misreservasService: MisreservasService, private dialogoService: DialogosService) { }
@@ -69,15 +71,24 @@ export class MisreservasComponent implements OnInit {
 
    updateReserva(id_reservas, id_hora){
     //this.dialogosService.abrirDialogCargando();
-    this.misreservasService.updateReservas(id_reservas, id_hora).subscribe(data => {
-      //        console.log(data);
-    //this.dialogosService.cerrarDialogo();
-    this.dialogoService.abrirDialogInfo("¡Tu reserva ha sido actualizada!").subscribe(opcionElegida => {
-      window.location.reload();
-
-      });
-      
+    this.misreservasService.comprobacionReserva(id_hora).subscribe(data => {
+      this.reservas = data['existe'];
+      if(this.reservas != null){
+       this.dialogoService.abrirDialogInfo("¡Lo siento! Ya has reservado esta hora").subscribe(opcionElegida => {
+       
+       });
+      }else{
+        this.misreservasService.updateReservas(id_reservas, id_hora).subscribe(data => {
+          //        console.log(data);
+        //this.dialogosService.cerrarDialogo();
+        this.dialogoService.abrirDialogInfo("¡Tu reserva ha sido actualizada!").subscribe(opcionElegida => {
+          window.location.reload();
+          });
+          
+        });
+      }
     });
+    
   }
 
 }
