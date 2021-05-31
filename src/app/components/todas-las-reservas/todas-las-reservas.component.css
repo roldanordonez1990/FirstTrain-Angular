@@ -1,0 +1,17 @@
+.colorButtonDelete{
+    color: red;
+}
+
+.colorButtonUpdate{
+    color: #27a800;
+}
+
+.tipoLetra{
+    
+    font-family: 'Playfair Display', serif;
+    font-size: large;
+}
+
+table{
+    width: 100%;
+}

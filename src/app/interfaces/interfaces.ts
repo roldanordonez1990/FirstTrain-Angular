@@ -27,6 +27,7 @@ export interface Nivel_Entrenamiento{
 export interface Reserva{
 
     id_hora: number[];
+    id_usu: number;
     activo: boolean;
 }
 
@@ -37,6 +38,7 @@ export interface Mezcla{
     horas: string;
     fecha: Date;
     id_reservas: number;
+    id_usuario: number;
 }
 
 export interface Horario{
