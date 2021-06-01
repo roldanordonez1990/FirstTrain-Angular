@@ -7,12 +7,15 @@ import { Reserva } from '../../interfaces/interfaces';
 import { MisreservasService } from 'src/app/services/misreservas.service';
 import { TodasLasReservasService } from 'src/app/services/todas-las-reservas.service';
 import { DialogosService } from '../../services/dialogos.service';
+import { PageEvent } from '@angular/material/paginator';
+
 
 @Component({
   selector: 'app-todas-las-reservas',
   templateUrl: './todas-las-reservas.component.html',
   styleUrls: ['./todas-las-reservas.component.css']
 })
+
 export class TodasLasReservasComponent implements OnInit {
 
   usuarioAutenticado: Usuario[]; // Guardo el usuario autenticado
@@ -21,6 +24,32 @@ export class TodasLasReservasComponent implements OnInit {
   listadoTodasLasReservas: Mezcla[];
   listadoHorasDisponibles: Horario[];
   reservas: Reserva[];
+  /**
+   * 
+   */
+  // MatPaginator Inputs
+  length = 100;
+  pageSize = 10;
+  pageSizeOptions: number[] = [5, 10, 25, 100];
+
+  // MatPaginator Output
+  pageEvent: PageEvent;
+
+  setPageSizeOptions(setPageSizeOptionsInput: string) {
+    if (setPageSizeOptionsInput) {
+      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+    }
+  }
+  /**
+   * 
+   * @param event 
+   */
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSourceTabla.filter = filterValue.trim().toLowerCase();
+  }
+
+  
   constructor(private todasLasReservasService: TodasLasReservasService,
     private misReservasService: MisreservasService, private dialogoService: DialogosService) { }
 

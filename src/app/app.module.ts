@@ -21,6 +21,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { DialogosComponent } from './components/dialogos/dialogos.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { LoginComponent } from './components/login/login.component';
@@ -64,7 +65,8 @@ import { TodasLasReservasComponent } from './components/todas-las-reservas/todas
     HttpClientModule,
     ReactiveFormsModule,
     MatTableModule,
-    MatTabsModule
+    MatTabsModule,
+    MatPaginatorModule
   ],
 
   providers: [{provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }],
