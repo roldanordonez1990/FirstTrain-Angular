@@ -39,6 +39,12 @@ export interface Mezcla{
     fecha: Date;
     id_reservas: number;
     id_usuario: number;
+    totalReservas: number;
+}
+
+export interface listadoReservas{
+    reserva: Reserva[];
+    totalReservas: number;
 }
 
 export interface Horario{

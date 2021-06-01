@@ -7,8 +7,6 @@ import { Reserva } from '../../interfaces/interfaces';
 import { MisreservasService } from 'src/app/services/misreservas.service';
 import { TodasLasReservasService } from 'src/app/services/todas-las-reservas.service';
 import { DialogosService } from '../../services/dialogos.service';
-import { PageEvent } from '@angular/material/paginator';
-
 
 @Component({
   selector: 'app-todas-las-reservas',
@@ -24,26 +22,6 @@ export class TodasLasReservasComponent implements OnInit {
   listadoTodasLasReservas: Mezcla[];
   listadoHorasDisponibles: Horario[];
   reservas: Reserva[];
-  /**
-   * 
-   */
-  // MatPaginator Inputs
-  length = 100;
-  pageSize = 10;
-  pageSizeOptions: number[] = [5, 10, 25, 100];
-
-  // MatPaginator Output
-  pageEvent: PageEvent;
-
-  setPageSizeOptions(setPageSizeOptionsInput: string) {
-    if (setPageSizeOptionsInput) {
-      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
-    }
-  }
-  /**
-   * 
-   * @param event 
-   */
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSourceTabla.filter = filterValue.trim().toLowerCase();
@@ -86,7 +64,7 @@ export class TodasLasReservasComponent implements OnInit {
        
        });
       }else{
-        this.todasLasReservasService.updateReservas(id_reservas, id_hora, id_usu).subscribe(data => {
+        this.misReservasService.updateReservas(id_reservas, id_hora).subscribe(data => {
           //        console.log(data);
         //this.dialogosService.cerrarDialogo();
         this.dialogoService.abrirDialogInfo("¡Tu reserva ha sido actualizada!").subscribe(opcionElegida => {

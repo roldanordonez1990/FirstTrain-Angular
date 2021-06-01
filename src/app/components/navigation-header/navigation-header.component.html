@@ -60,11 +60,9 @@
   <h6 class="tipoLetra mt-2 mr-2" style="color: #bfbfbf;">First Train - Entrenamiento Personal</h6>
 -->
 
- 
-
   <ng-container>
     <ng-container *ngIf="(usuarioAutenticado != undefined); else elseBlock2">
-      <span class="tipoLetra2"style="color: #bfbfbf;">Hola,
+     <span class="tipoLetra2"style="color: #bfbfbf;">Hola,
         {{usuarioAutenticado}} {{usuarioAutenticado1}}</span>
     </ng-container>
     <button mat-icon-button color="accent" [matMenuTriggerFor]="menu">

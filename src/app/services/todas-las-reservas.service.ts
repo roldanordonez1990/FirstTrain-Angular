@@ -44,9 +44,9 @@ export class TodasLasReservasService {
      * 
      */
 
-     updateReservas(id_reservas: number, id_hora: number, id_usu: number): Observable<Reserva> {
+     updateReservas(id_hora: number, id_reservas: number): Observable<Reserva> {
 
-      return this.http.get<Reserva>('/reserva/updateHoraDesdeAdmin?id_reservas=' + id_reservas + '&id_hora=' + id_hora+ '&id_usu=' + id_usu).pipe(
+      return this.http.get<Reserva>('/reserva/updateHora?id_hora=' + id_hora + '&id_reservas=' + id_reservas).pipe(
         tap(data => console.log(id_reservas)),
   
       );
