@@ -1,62 +1,56 @@
-.spacer{
-    flex: 1 1 auto;
+.spacer {
+  flex: 1 1 auto;
 }
 
-.colorMenuButton{
-
-    color: #fff;
+.colorMenuButton {
+  color: #fff;
 }
 
 .mat-toolbar.mat-primary {
-    background: #000000;
-    color: #fff;
-  }
-
-span.tipoLetra{
-    
-    font-family: 'Playfair Display', serif;
-    color: white;
-   
+  background: #000000;
+  color: #fff;
 }
-nav{
-    background-color: black !important;
+
+span.tipoLetra {
+  font-family: "Playfair Display", serif;
+  color: white;
+}
+nav {
+  background-color: black !important;
 }
 
 .navbar-light .navbar-toggler {
-    background-color: white;
-    
-  }
-
-.nav-link{
-    color: white !important;
+  background-color: white;
 }
 
-.tipoLetra{
-    
-    font-family: 'Playfair Display', serif;
-    font-size: large;
+.nav-link {
+  color: white !important;
 }
 
-.tipoLetra2{
-    font-family: 'Playfair Display', serif;
-    font-size: medium;
+.tipoLetra {
+  font-family: "Playfair Display", serif;
+  font-size: large;
 }
 
-
-a {
-    text-decoration: none;
-    background-image: linear-gradient(currentColor, currentColor);
-    background-position: 0% 100%;
-    background-repeat: no-repeat;
-    background-size: 0% 2px;
-    transition: background-size .3s;
+.tipoLetra2 {
+  font-family: "Playfair Display", serif;
+  font-size: medium;
 }
 
-a:hover, a:focus {
-    background-size: 100% 2px;
+a.solonav {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, #27a800);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size 0.3s;
 }
 
-.colorIconoUsu{
-    color: white;
+a:hover,
+a:focus {
+  background-size: 100% 2px;
 }
- 
+
+.colorIconoUsu {
+  color: white;
+}

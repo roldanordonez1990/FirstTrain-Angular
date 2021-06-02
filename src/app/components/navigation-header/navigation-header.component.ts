@@ -26,14 +26,14 @@ export class NavigationHeaderComponent implements OnInit {
 
   ngOnInit(): void {
 
-        this.navigationHeaderService.getDatosUsuario().subscribe(data => {
-          this.usuarioAutenticado = data['nombre'];
-          this.usuarioAutenticado2 = data['rol'];
-          this.usuarioAutenticado1 = data['apellidos'];
-         console.log("hola soy tu amigo");
-         console.log(this.usuarioAutenticado);
-        });
-    
+    this.navigationHeaderService.getDatosUsuario().subscribe(data => {
+      this.usuarioAutenticado = data['nombre'];
+      this.usuarioAutenticado2 = data['rol'];
+      this.usuarioAutenticado1 = data['apellidos'];
+      console.log("hola soy tu amigo");
+      console.log(this.usuarioAutenticado);
+    });
+
   }
 
   abandonarSesion() {

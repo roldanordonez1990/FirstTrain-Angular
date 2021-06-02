@@ -1,43 +1,35 @@
 .errorValidacion {
-    margin-top: 5px;
-    color: #27a800;
+  margin-top: 5px;
+  color: #27a800;
 }
 
 .loginCard {
-    max-width: 520px;
-    
+  max-width: 520px;
 }
 
-.tipoLetra{
-    
-    font-family: 'Playfair Display', serif;
-   
+.tipoLetra {
+  font-family: "Playfair Display", serif;
 }
-
 
 mat-form-field {
-    width: 100%;
+  width: 100%;
 }
 
-.contenedorLogin{
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.contenedorLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.botonLogin{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Playfair Display', serif;
-   
+.botonLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Playfair Display", serif;
 }
 
-
-.temaBtnLogin{
-    background-color:black;
-    color: white;
-    font-family: 'Playfair Display', serif;
+.temaBtnLogin {
+  background-color: black;
+  color: white;
+  font-family: "Playfair Display", serif;
 }
-    

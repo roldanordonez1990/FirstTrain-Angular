@@ -1,154 +1,164 @@
 <app-navigation-header></app-navigation-header>
 <div class="contenedorLogin mt-4 mb-3">
-    <mat-card class="loginCard">
-      <mat-card-header class="botonLogin">
-        <mat-card-title>Nuevo Registro</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
+  <mat-card class="loginCard">
+    <mat-card-header class="botonLogin">
+      <mat-card-title>Nuevo Registro</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
 
-  <form [formGroup]="registroForm">
-            <div class="row"> <!--Inicio de la row-->
-              <div class="col-lg-6"> <!--Inicio de la primera col6-->
+      <form [formGroup]="registroForm">
+        <div class="row">
+          <!--Inicio de la row-->
+          <div class="col-lg-6">
+            <!--Inicio de la primera col6-->
 
-          <mat-form-field appearance="fill">
-            <mat-label>Nombre</mat-label>
-            <input type="text" matInput placeholder="Tu nombre de usuario" formControlName="username">
-            <mat-hint></mat-hint>
-            <!--Esto es una pequeña etiqueta para sugerencias de texto-->
-            <ng-container *ngIf="registroForm.controls.username.errors != undefined">
-              <div class="errorValidacion" *ngIf="registroForm.controls.username.errors.required">Debes introducir
-                algún nombre
-              </div>
-              <div class="errorValidacion" *ngIf="registroForm.controls.username.errors.minlength">Debe tener al
-                menos 3
-                caracteres</div>
-            </ng-container>
-          </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Nombre</mat-label>
+              <input type="text" matInput placeholder="Tu nombre de usuario" formControlName="username">
+              <mat-hint></mat-hint>
+              <!--Esto es una pequeña etiqueta para sugerencias de texto-->
+              <ng-container *ngIf="registroForm.controls.username.errors != undefined">
+                <div class="errorValidacion" *ngIf="registroForm.controls.username.errors.required">Debes introducir
+                  algún nombre
+                </div>
+                <div class="errorValidacion" *ngIf="registroForm.controls.username.errors.minlength">Debe tener al
+                  menos 3
+                  caracteres</div>
+              </ng-container>
+            </mat-form-field>
 
-          <mat-form-field appearance="fill">
-            <mat-label>Apellido</mat-label>
-            <input type="text" matInput placeholder="Tu primer apellido" formControlName="apellidos">
-            <mat-hint></mat-hint>
-            <!--Esto es una pequeña etiqueta para sugerencias de texto-->
-            <ng-container *ngIf="registroForm.controls.apellidos.errors != undefined">
-              <div class="errorValidacion" *ngIf="registroForm.controls.apellidos.errors.required">Debes introducir
-                al menos un apellido
-              </div>
-            </ng-container>
-          </mat-form-field>
-
-          <mat-form-field appearance="fill">
-            <mat-label>DNI</mat-label>
-            <input type="text" matInput placeholder="Tu dni" formControlName="dni">
-            <mat-hint></mat-hint>
-            <!--Esto es una pequeña etiqueta para sugerencias de texto-->
-            <ng-container *ngIf="registroForm.controls.dni.errors != undefined">
-              <div class="errorValidacion" *ngIf="registroForm.controls.dni.errors.required">Debes introducir
-                algún dni
-              </div>
-              <div class="errorValidacion" *ngIf="registroForm.controls.dni.errors.minlength">Debe tener al
-                menos 9
-                caracteres</div>
-                <div class="errorValidacion" *ngIf="registroForm.controls.dni.errors.maxlength">No puede tener más de 9 caracteres</div>
-            </ng-container>
-          </mat-form-field>
-
-          <mat-form-field appearance="fill">
-            <mat-label>Dirección</mat-label>
-            <input type="text" matInput placeholder="Tu dirección" formControlName="direccion">
-            <mat-hint></mat-hint>
-            <!--Esto es una pequeña etiqueta para sugerencias de texto-->
-            <ng-container *ngIf="registroForm.controls.direccion.errors != undefined">
-              <div class="errorValidacion" *ngIf="registroForm.controls.direccion.errors.required">Debes introducir
-                alguna dirección
-              </div>
-            </ng-container>
-          </mat-form-field>
-        </div> <!--Fin de la primera col6-->
-
-        <div class="col-lg-6"> <!--Inicio de la segunda col6-->
-          <mat-form-field appearance="fill">
-            <mat-label>Teléfono</mat-label>
-            <input type="text" matInput placeholder="Tu teléfono particular" formControlName="telefono">
-            <mat-hint></mat-hint>
-            <!--Esto es una pequeña etiqueta para sugerencias de texto-->
-            <ng-container *ngIf="registroForm.controls.telefono.errors != undefined">
-              <div class="errorValidacion" *ngIf="registroForm.controls.telefono.errors.required">Debes introducir
-                algún valor
-              </div>
-              <div class="errorValidacion" *ngIf="registroForm.controls.telefono.errors.minlength">Debe tener al
-                menos 9
-                dígitos</div>
-            </ng-container>
-          </mat-form-field>
-
-          <mat-form-field appearance="fill">
-            <mat-label>Edad</mat-label>
-            <input type="text" matInput placeholder="" formControlName="edad">
-            <mat-hint></mat-hint>
-            <!--Esto es una pequeña etiqueta para sugerencias de texto-->
-            <ng-container *ngIf="registroForm.controls.edad.errors != undefined">
-              <div class="errorValidacion" *ngIf="registroForm.controls.edad.errors.required">Debes introducir
-                una fecha
-              </div>
-            </ng-container>
-          </mat-form-field>
-
-          <mat-form-field appearance="fill">
-            <mat-label>Email</mat-label>
-            <input type="text" matInput placeholder="Tu email" formControlName="email">
-            <ng-container *ngIf="registroForm.controls.email.errors != undefined">
-              <div class="errorValidacion" *ngIf="registroForm.controls.email.errors.required">Debes introducir una
-                email
-              </div>
-              <div class="errorValidacion" *ngIf="registroForm.controls.email.errors.email">Debe tener formato de
-                email
-              </div>
-            </ng-container>
-          </mat-form-field>
-
-
-          <mat-form-field appearance="fill">
-            <mat-label>Nivel de Entrenamiento</mat-label>
-            <mat-select formControlName="nivel" >
-              <ng-container *ngIf="registroForm.controls.nivel.errors != undefined">
-                <div class="errorValidacion ml-3" *ngIf="registroForm.controls.nivel.errors.required">Debes seleccionar
-                  un nivel
+            <mat-form-field appearance="fill">
+              <mat-label>Apellido</mat-label>
+              <input type="text" matInput placeholder="Tu primer apellido" formControlName="apellidos">
+              <mat-hint></mat-hint>
+              <!--Esto es una pequeña etiqueta para sugerencias de texto-->
+              <ng-container *ngIf="registroForm.controls.apellidos.errors != undefined">
+                <div class="errorValidacion" *ngIf="registroForm.controls.apellidos.errors.required">Debes introducir
+                  al menos un apellido
                 </div>
               </ng-container>
-              <mat-option *ngFor="let niveles of listadoNivelesEntrenamiento" [value]="niveles.idniveles">
-                {{niveles.nivel_corto}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-          
-          <mat-form-field appearance="fill">
-            <mat-label>Contraseña</mat-label>
-            <input type="text" matInput placeholder="Tu contraseña" formControlName="password">
-            <ng-container *ngIf="registroForm.controls.password.errors != undefined">
-              <div class="errorValidacion" *ngIf="registroForm.controls.password.errors.required">Debes introducir
-                una contraseña
-              </div>
-              <div class="errorValidacion" *ngIf="registroForm.controls.password.errors.minlength">Debe tener al
-                menos 5
-                caracteres</div>
-            </ng-container>
-          </mat-form-field>
-        </div> <!--Fin de la segunda col6-->
-        </div> <!--Fin de la row-->
+            </mat-form-field>
 
-        
+            <mat-form-field appearance="fill">
+              <mat-label>DNI</mat-label>
+              <input type="text" matInput placeholder="Tu dni" formControlName="dni">
+              <mat-hint></mat-hint>
+              <!--Esto es una pequeña etiqueta para sugerencias de texto-->
+              <ng-container *ngIf="registroForm.controls.dni.errors != undefined">
+                <div class="errorValidacion" *ngIf="registroForm.controls.dni.errors.required">Debes introducir
+                  algún dni
+                </div>
+                <div class="errorValidacion" *ngIf="registroForm.controls.dni.errors.minlength">Debe tener al
+                  menos 9
+                  caracteres</div>
+                <div class="errorValidacion" *ngIf="registroForm.controls.dni.errors.maxlength">No puede tener más de 9
+                  caracteres</div>
+              </ng-container>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Dirección</mat-label>
+              <input type="text" matInput placeholder="Tu dirección" formControlName="direccion">
+              <mat-hint></mat-hint>
+              <!--Esto es una pequeña etiqueta para sugerencias de texto-->
+              <ng-container *ngIf="registroForm.controls.direccion.errors != undefined">
+                <div class="errorValidacion" *ngIf="registroForm.controls.direccion.errors.required">Debes introducir
+                  alguna dirección
+                </div>
+              </ng-container>
+            </mat-form-field>
+          </div>
+          <!--Fin de la primera col6-->
+
+          <div class="col-lg-6">
+            <!--Inicio de la segunda col6-->
+            <mat-form-field appearance="fill">
+              <mat-label>Teléfono</mat-label>
+              <input type="text" matInput placeholder="Tu teléfono particular" formControlName="telefono">
+              <mat-hint></mat-hint>
+              <!--Esto es una pequeña etiqueta para sugerencias de texto-->
+              <ng-container *ngIf="registroForm.controls.telefono.errors != undefined">
+                <div class="errorValidacion" *ngIf="registroForm.controls.telefono.errors.required">Debes introducir
+                  algún valor
+                </div>
+                <div class="errorValidacion" *ngIf="registroForm.controls.telefono.errors.minlength">Debe tener al
+                  menos 9
+                  dígitos</div>
+              </ng-container>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Edad</mat-label>
+              <input type="text" matInput placeholder="" formControlName="edad">
+              <mat-hint></mat-hint>
+              <!--Esto es una pequeña etiqueta para sugerencias de texto-->
+              <ng-container *ngIf="registroForm.controls.edad.errors != undefined">
+                <div class="errorValidacion" *ngIf="registroForm.controls.edad.errors.required">Debes introducir
+                  una fecha
+                </div>
+              </ng-container>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input type="text" matInput placeholder="Tu email" formControlName="email">
+              <ng-container *ngIf="registroForm.controls.email.errors != undefined">
+                <div class="errorValidacion" *ngIf="registroForm.controls.email.errors.required">Debes introducir una
+                  email
+                </div>
+                <div class="errorValidacion" *ngIf="registroForm.controls.email.errors.email">Debe tener formato de
+                  email
+                </div>
+              </ng-container>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="fill">
+              <mat-label>Nivel de Entrenamiento</mat-label>
+              <mat-select formControlName="nivel">
+                <ng-container *ngIf="registroForm.controls.nivel.errors != undefined">
+                  <div class="errorValidacion ml-3" *ngIf="registroForm.controls.nivel.errors.required">Debes
+                    seleccionar
+                    un nivel
+                  </div>
+                </ng-container>
+                <mat-option *ngFor="let niveles of listadoNivelesEntrenamiento" [value]="niveles.idniveles">
+                  {{niveles.nivel_corto}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Contraseña</mat-label>
+              <input type="text" matInput placeholder="Tu contraseña" formControlName="password">
+              <ng-container *ngIf="registroForm.controls.password.errors != undefined">
+                <div class="errorValidacion" *ngIf="registroForm.controls.password.errors.required">Debes introducir
+                  una contraseña
+                </div>
+                <div class="errorValidacion" *ngIf="registroForm.controls.password.errors.minlength">Debe tener al
+                  menos 5
+                  caracteres</div>
+              </ng-container>
+            </mat-form-field>
+          </div>
+          <!--Fin de la segunda col6-->
+        </div>
+        <!--Fin de la row-->
+
+
         <mat-form-field class="fill">
           <mat-label>Información Adicional</mat-label>
-          <textarea matInput placeholder="¿Tienes alguna enfermedad o algo que necesitemos saber?" formControlName="info"></textarea>
+          <textarea matInput placeholder="¿Tienes alguna enfermedad o algo que necesitemos saber?"
+            formControlName="info"></textarea>
         </mat-form-field>
-          <mat-card-actions class="botonLogin ">
-            <button mat-stroked-button color="primary" [disabled]="registroForm.invalid"  class="temaBtnLogin mr-3" (click)="nuevoUsuarioRegistrado()"
-             >Registrar</button>
-            <a href="welcome"><button mat-stroked-button color="primary" class="temaBtnLogin" (click)="volverAwelcome()">Volver</button></a>
-          </mat-card-actions>
-       
-</form>
-      </mat-card-content>
-    </mat-card>
-  </div>
-  <app-footer></app-footer>
+        <mat-card-actions class="botonLogin ">
+          <button mat-stroked-button color="primary" [disabled]="registroForm.invalid" class="temaBtnLogin mr-3"
+            (click)="nuevoUsuarioRegistrado()">Registrar</button>
+          <a href="welcome"><button mat-stroked-button color="primary" class="temaBtnLogin"
+              (click)="volverAwelcome()">Volver</button></a>
+        </mat-card-actions>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+<app-footer></app-footer>

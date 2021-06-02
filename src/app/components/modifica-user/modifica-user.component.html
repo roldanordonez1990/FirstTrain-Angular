@@ -1,0 +1,159 @@
+<app-navigation-header></app-navigation-header>
+<div class="contenedorLogin mt-4 mb-3">
+  <mat-card class="loginCard">
+    <mat-card-header class="botonLogin">
+      <mat-card-title>¿Quieres modificar los datos del usuario?</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+      <form>
+        <div class="row">
+          <!--Inicio de la row-->
+          <div class="col-lg-6">
+            <!--Inicio de la primera col6-->
+
+            <mat-form-field appearance="fill">
+              <mat-label>Nombre</mat-label>
+              <input type="text" matInput placeholder="Tu nombre de usuario">
+              <mat-hint></mat-hint>
+              <!--Esto es una pequeña etiqueta para sugerencias de texto-->
+              <ng-container *ngIf="">
+                <div class="errorValidacion" *ngIf="">Debes introducir
+                  algún nombre
+                </div>
+                <div class="errorValidacion" *ngIf="">Debe tener al
+                  menos 3
+                  caracteres</div>
+              </ng-container>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Apellido</mat-label>
+              <input type="text" matInput placeholder="Tu primer apellido">
+              <mat-hint></mat-hint>
+              <!--Esto es una pequeña etiqueta para sugerencias de texto-->
+              <ng-container *ngIf="">
+                <div class="errorValidacion" *ngIf="">Debes introducir
+                  al menos un apellido
+                </div>
+              </ng-container>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>DNI</mat-label>
+              <input type="text" matInput placeholder="Tu dni">
+              <mat-hint></mat-hint>
+              <!--Esto es una pequeña etiqueta para sugerencias de texto-->
+              <ng-container *ngIf="">
+                <div class="errorValidacion" *ngIf="">Debes introducir
+                  algún dni
+                </div>
+                <div class="errorValidacion" *ngIf="">Debe tener al
+                  menos 9
+                  caracteres</div>
+                <div class="errorValidacion" *ngIf="">No puede tener más de 9 caracteres</div>
+              </ng-container>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Dirección</mat-label>
+              <input type="text" matInput placeholder="Tu dirección">
+              <mat-hint></mat-hint>
+              <!--Esto es una pequeña etiqueta para sugerencias de texto-->
+              <ng-container *ngIf="">
+                <div class="errorValidacion" *ngIf="">Debes introducir
+                  alguna dirección
+                </div>
+              </ng-container>
+            </mat-form-field>
+          </div>
+          <!--Fin de la primera col6-->
+
+          <div class="col-lg-6">
+            <!--Inicio de la segunda col6-->
+            <mat-form-field appearance="fill">
+              <mat-label>Teléfono</mat-label>
+              <input type="text" matInput placeholder="Tu teléfono particular">
+              <mat-hint></mat-hint>
+              <!--Esto es una pequeña etiqueta para sugerencias de texto-->
+              <ng-container *ngIf="">
+                <div class="errorValidacion" *ngIf="">Debes introducir
+                  algún valor
+                </div>
+                <div class="errorValidacion" *ngIf="">Debe tener al
+                  menos 9
+                  dígitos</div>
+              </ng-container>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Edad</mat-label>
+              <input type="text" matInput placeholder="">
+              <mat-hint></mat-hint>
+              <!--Esto es una pequeña etiqueta para sugerencias de texto-->
+              <ng-container *ngIf="">
+                <div class="errorValidacion" *ngIf="">Debes introducir
+                  una fecha
+                </div>
+              </ng-container>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Email</mat-label>
+              <input type="text" matInput placeholder="Tu email">
+              <ng-container *ngIf="">
+                <div class="errorValidacion" *ngIf="">Debes introducir una
+                  email
+                </div>
+                <div class="errorValidacion" *ngIf="">Debe tener formato de
+                  email
+                </div>
+              </ng-container>
+            </mat-form-field>
+
+
+            <mat-form-field appearance="fill">
+              <mat-label>Nivel de Entrenamiento</mat-label>
+              <mat-select>
+                <ng-container *ngIf="">
+                  <div class="errorValidacion ml-3" *ngIf="">Debes seleccionar
+                    un nivel
+                  </div>
+                </ng-container>
+                <mat-option *ngFor="">
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Contraseña</mat-label>
+              <input type="text" matInput placeholder="Tu contraseña">
+              <ng-container *ngIf="">
+                <div class="errorValidacion" *ngIf="">Debes introducir
+                  una contraseña
+                </div>
+                <div class="errorValidacion" *ngIf="">Debe tener al
+                  menos 5
+                  caracteres</div>
+              </ng-container>
+            </mat-form-field>
+          </div>
+          <!--Fin de la segunda col6-->
+        </div>
+        <!--Fin de la row-->
+
+
+        <mat-form-field class="fill">
+          <mat-label>Información Adicional</mat-label>
+          <textarea matInput placeholder="¿Tienes alguna enfermedad o algo que necesitemos saber?"></textarea>
+        </mat-form-field>
+        <mat-card-actions class="botonLogin ">
+          <button mat-stroked-button color="primary" [disabled]="" class="temaBtnLogin mr-3">Registrar</button>
+          <a href="welcome"><button mat-stroked-button color="primary" class="temaBtnLogin">Volver</button></a>
+        </mat-card-actions>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+<app-footer></app-footer>

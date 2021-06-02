@@ -13,7 +13,7 @@ import { RegistroService } from 'src/app/services/registro.service';
 })
 export class RegistroComponent implements OnInit {
 
-  registroForm: FormGroup; 
+  registroForm: FormGroup;
   listadoNivelesEntrenamiento: Nivel_Entrenamiento[];
 
   constructor(private router: Router,
@@ -21,10 +21,10 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit(): void {
     this.registroForm = new FormGroup({
-      username: new FormControl ('', [Validators.required, Validators.minLength(3)]),
-      apellidos: new FormControl ('', [Validators.required]),
+      username: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      apellidos: new FormControl('', [Validators.required]),
       dni: new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
-      direccion : new FormControl('', [Validators.required]),
+      direccion: new FormControl('', [Validators.required]),
       telefono: new FormControl('', [Validators.required, Validators.minLength(9)]),
       edad: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -50,11 +50,11 @@ export class RegistroComponent implements OnInit {
   /**
    * 
    */
-   nuevoUsuarioRegistrado() {
+  nuevoUsuarioRegistrado() {
     this.dialogosService.abrirDialogCargando();
     this.registroServi.registroNuevoUsuario(this.registroForm.controls.username.value,
-      this.registroForm.controls.apellidos.value, this.registroForm.controls.dni.value, 
-      this.registroForm.controls.email.value, this.registroForm.controls.telefono.value, 
+      this.registroForm.controls.apellidos.value, this.registroForm.controls.dni.value,
+      this.registroForm.controls.email.value, this.registroForm.controls.telefono.value,
       this.registroForm.controls.direccion.value, this.registroForm.controls.edad.value,
       this.registroForm.controls.nivel.value, this.registroForm.controls.password.value,
       this.registroForm.controls.info.value).subscribe(data => {
@@ -63,7 +63,7 @@ export class RegistroComponent implements OnInit {
         //window.location.reload();
         this.dialogosService.abrirDialogConfirmacion("¡Registro correcto! Loguéate para entrar").subscribe(opcionElegida => {
           if (opcionElegida == DialogTypes.RESPUESTA_ACEPTAR) {
-    
+
             this.router.navigate(['/login']);
           }
         });

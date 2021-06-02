@@ -18,29 +18,29 @@ export class ListadoComponent implements OnInit {
 
   dataSourceTabla: MatTableDataSource<Mezcla>
   columnas: string[] = ['Nombre', 'Apellidos', 'Horario'];
-  constructor(private getGruposService: GruposService,private misreservasService: MisreservasService) { }
+  constructor(private getGruposService: GruposService, private misreservasService: MisreservasService) { }
 
   ngOnInit(): void {
-   
+
     //Lo pongo aquí también primero porque si no da pete 
-    this.getGruposService.getDatosGrupos(0).subscribe(data =>{
+    this.getGruposService.getDatosGrupos(0).subscribe(data => {
       this.dataSourceTabla = new MatTableDataSource<Mezcla>(data['grupos']);
       //también se lo asignamos a este listado para poder usarlo
       this.listadoGrupos = data['grupos'];
     });
 
-/**
- * 
- */
-     this.misreservasService.getHoras().subscribe(data => {
+    /**
+     * 
+     */
+    this.misreservasService.getHoras().subscribe(data => {
       this.listadoHorasDisponibles = data['horas'];
       console.log(this.listadoHorasDisponibles);
     });
   }
 
 
-  quieroLaHora(id_horario){
-    this.getGruposService.getDatosGrupos(id_horario).subscribe(data =>{
+  quieroLaHora(id_horario) {
+    this.getGruposService.getDatosGrupos(id_horario).subscribe(data => {
       this.dataSourceTabla = new MatTableDataSource<Mezcla>(data['grupos']);
       //también se lo asignamos a este listado para poder usarlo
       this.listadoGrupos = data['grupos'];

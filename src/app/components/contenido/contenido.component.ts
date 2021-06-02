@@ -25,10 +25,10 @@ export class ContenidoComponent implements OnInit {
   reservas: Reserva[];
   //listadoReserva: Horario[];
 
- //asignamos a una variable el objeto tablaDatasource con los Cometidos
- dataSourceTabla: MatTableDataSource<Horario>
- panelOpenState = false;
- idHorarioParaReserva: FormGroup;
+  //asignamos a una variable el objeto tablaDatasource con los Cometidos
+  dataSourceTabla: MatTableDataSource<Horario>
+  panelOpenState = false;
+  idHorarioParaReserva: FormGroup;
 
   constructor(private contenidoService: ContenidoService,
     private usuariosService: UsuariologinService, private router: Router,
@@ -37,8 +37,8 @@ export class ContenidoComponent implements OnInit {
   ngOnInit(): void {
 
     this.idHorarioParaReserva = new FormGroup({
-      idHora: new FormControl ()
-     
+      idHora: new FormControl()
+
     });
     this.contenidoService.getDatosUsuario().subscribe(data => {
       this.usuarioAutenticado = data['id_usuario'];
@@ -47,12 +47,12 @@ export class ContenidoComponent implements OnInit {
     });
     //Llamamos al método del servidor con el que recogemos todos los cometidos y le asignamos los resultados (data)
     //al objeto dataSourceTabla
-    this.contenidoService.getHorasHorario().subscribe(data =>{
+    this.contenidoService.getHorasHorario().subscribe(data => {
       this.dataSourceTabla = new MatTableDataSource<Horario>(data['horas']);
       //también se lo asignamos a este listado para poder usarlo
       this.listadoHoras = data['horas'];
     })
-    
+
 
   }
 
@@ -61,28 +61,28 @@ export class ContenidoComponent implements OnInit {
    * @param idHora 
    */
 
-  nuevaReserva(idHora){
-    console.log("Me estás dando la hora?"+idHora);
+  nuevaReserva(idHora) {
+    console.log("Me estás dando la hora?" + idHora);
     this.dialogosService.abrirDialogCargando();
     //this.dialogosService.abrirDialogCargando();
     this.contenidoService.comprobacionReserva(idHora).subscribe(data => {
-     this.reservas = data['existe'];
-     if(this.reservas != null){
-      this.dialogosService.abrirDialogInfo("¡Lo siento! Ya has reservado esta hora").subscribe(opcionElegida => {
-      
-      });
-     }else{
-      this.contenidoService.nuevaReservaPorUsuario(idHora).subscribe(data => {
-      
-        //this.dialogosService.cerrarDialogo();
-        //window.location.reload();
-        this.dialogosService.abrirDialogInfo("¡Tu reserva ha sido realizada con éxito!").subscribe(opcionElegida => {
-          window.location.reload();
-              });
+      this.reservas = data['existe'];
+      if (this.reservas != null) {
+        this.dialogosService.abrirDialogInfo("¡Lo siento! Ya has reservado esta hora").subscribe(opcionElegida => {
+
+        });
+      } else {
+        this.contenidoService.nuevaReservaPorUsuario(idHora).subscribe(data => {
+
+          //this.dialogosService.cerrarDialogo();
+          //window.location.reload();
+          this.dialogosService.abrirDialogInfo("¡Tu reserva ha sido realizada con éxito!").subscribe(opcionElegida => {
+            window.location.reload();
           });
-     }
+        });
+      }
     });
-    
+
   }
 
 }

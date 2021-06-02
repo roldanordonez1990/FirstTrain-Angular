@@ -1,67 +1,66 @@
-
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
     <span class="navbar-toggler-icon"></span>
   </button>
-  
+
   <!-- logo -->
   <a class="navbar-brand ml-2" href="#">
-    <img src="../../assets/images/logoprincipal.jpg" width="70px;"  alt="">
+    <img src="../../assets/images/logoprincipal.jpg" width="70px;" alt="">
   </a>
   <ng-container *ngIf="(usuarioAutenticado != undefined); else elseBlock">
     <!-- enlaces -->
-    <div class="collapse navbar-collapse mr-1 " id="opciones">   
-     <ul class="navbar-nav">
-       <li class="nav-item">
-         <a class="nav-link tipoLetra2" href="contenido">Reservar</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link tipoLetra2" href="misreservas">Mis-Reservas</a>
-     </li>
-     <li class="nav-item">
-      <a class="nav-link tipoLetra2" href="listado">Grupos</a>
-    </li>
-       <ng-container *ngIf="(usuarioAutenticado2 == 1)">
-       <li class="nav-item">
-        <a class="nav-link tipoLetra2" href="todaslasreservas">Listado</a>
-      </li>   
-      <li class="nav-item">
-        <a class="nav-link tipoLetra2" href="gestion">Gestión</a>
-      </li>   
-    </ng-container>        
-     </ul>
-   </div>
- </ng-container>
- 
-<ng-template #elseBlock>
-    <div class="collapse navbar-collapse ml-2 mr-1 " id="opciones">   
+    <div class="collapse navbar-collapse mr-1 " id="opciones">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link tipoLetra" href="welcome">Inicio</a>
+          <a class="nav-link tipoLetra2 solonav" href="contenido">Reservar</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link tipoLetra" href="login">Log-in</a>
+          <a class="nav-link tipoLetra2 solonav" href="misreservas">Mis-Reservas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link tipoLetra" href="registro">Registro</a>
+          <a class="nav-link tipoLetra2 solonav" href="listado">Grupos</a>
         </li>
-                 
+        <ng-container *ngIf="(usuarioAutenticado2 == 1)">
+          <li class="nav-item">
+            <a class="nav-link tipoLetra2 solonav" href="todaslasreservas">Listado</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link tipoLetra2 solonav" href="gestion">Gestión</a>
+          </li>
+        </ng-container>
       </ul>
     </div>
-</ng-template>
-<span class="spacer"></span>
+  </ng-container>
 
-<ng-template #elseBlock2>
-  <p class="tipoLetra mt-3 mr-2" style="color: #bfbfbf;">First Train - Entrenamiento Personal</p>
-</ng-template>
-<!--
+  <ng-template #elseBlock>
+    <div class="collapse navbar-collapse ml-2 mr-1 " id="opciones">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link tipoLetra solonav" href="welcome">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link tipoLetra solonav" href="login">Log-in</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link tipoLetra solonav" href="registro">Registro</a>
+        </li>
+
+      </ul>
+    </div>
+  </ng-template>
+  <span class="spacer"></span>
+
+  <ng-template #elseBlock2>
+    <p class="tipoLetra mt-3 mr-2" style="color: #bfbfbf;">First Train</p>
+  </ng-template>
+  <!--
   <h6 class="tipoLetra mt-2 mr-2" style="color: #bfbfbf;">First Train - Entrenamiento Personal</h6>
 -->
-<span class="spacer"></span>
+  <span class="spacer"></span>
 
   <ng-container>
     <ng-container *ngIf="(usuarioAutenticado != undefined); else elseBlock2">
-     <span class="tipoLetra2"style="color: #bfbfbf;">Hola,
+      <span class="tipoLetra2" style="color: #bfbfbf;">Hola,
         {{usuarioAutenticado}} {{usuarioAutenticado1}}</span>
     </ng-container>
     <button mat-icon-button color="accent" [matMenuTriggerFor]="menu">
@@ -82,5 +81,6 @@
 </nav>
 <!--Script JQuery para cerrar el menú-->
 <script>
-$('#opciones').collapse('hide');
+  $('#opciones').collapse('hide');
+
 </script>

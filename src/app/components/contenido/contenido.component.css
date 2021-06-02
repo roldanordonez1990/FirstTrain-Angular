@@ -1,13 +1,12 @@
-.tamanoCard{
-    width: 60%;
+.tamanoCard {
+  width: 60%;
 }
 
 ::ng-deep .mat-ink-bar {
-    background-color: var(--primary-color,#27a800) !important;
-    width: 159px !important; 
+  background-color: var(--primary-color, #27a800) !important;
+  width: 159px !important;
 }
 
-table{
-    width: 100%;
+table {
+  width: 100%;
 }
-

@@ -27,13 +27,13 @@ export class TodasLasReservasComponent implements OnInit {
     this.dataSourceTabla.filter = filterValue.trim().toLowerCase();
   }
 
-  
+
   constructor(private todasLasReservasService: TodasLasReservasService,
     private misReservasService: MisreservasService, private dialogoService: DialogosService) { }
 
   ngOnInit(): void {
 
-    this.todasLasReservasService.getDatosTodasLasReservas().subscribe(data =>{
+    this.todasLasReservasService.getDatosTodasLasReservas().subscribe(data => {
       this.dataSourceTabla = new MatTableDataSource<Mezcla>(data['todasLasReservas']);
       //también se lo asignamos a este listado para poder usarlo
       this.listadoTodasLasReservas = data['todasLasReservas'];
@@ -47,51 +47,51 @@ export class TodasLasReservasComponent implements OnInit {
       this.listadoHorasDisponibles = data['horasDisponibles'];
       console.log(this.listadoHorasDisponibles);
     });
-    
+
 
   }
 
-    /**
-   * 
-   */
+  /**
+ * 
+ */
 
-     deleteReserva(id_reservas){
-      //this.dialogosService.abrirDialogCargando();
-      this.misReservasService.deleteReservas(id_reservas).subscribe(data => {
-        //        console.log(data);
+  deleteReserva(id_reservas) {
+    //this.dialogosService.abrirDialogCargando();
+    this.misReservasService.deleteReservas(id_reservas).subscribe(data => {
+      //        console.log(data);
       //this.dialogosService.cerrarDialogo();
       this.dialogoService.abrirDialogInfo("¡Esta reserva ha sido eliminada!").subscribe(opcionElegida => {
         window.location.reload();
-          });
-        
-        });
-    }
-    
+      });
+
+    });
+  }
+
 
   /**
    * 
    */
 
-   updateReserva(id_reservas, id_hora, id_usu){
+  updateReserva(id_reservas, id_hora, id_usu) {
     //this.dialogosService.abrirDialogCargando();
     this.todasLasReservasService.comprobacionReserva(id_hora, id_usu).subscribe(data => {
       this.reservas = data['existe'];
-      if(this.reservas != null){
-       this.dialogoService.abrirDialogInfo("¡Lo siento! Ya ha reservado esta hora").subscribe(opcionElegida => {
-       
-       });
-      }else{
+      if (this.reservas != null) {
+        this.dialogoService.abrirDialogInfo("¡Lo siento! Ya ha reservado esta hora").subscribe(opcionElegida => {
+
+        });
+      } else {
         this.misReservasService.updateReservas(id_reservas, id_hora).subscribe(data => {
           //        console.log(data);
-        //this.dialogosService.cerrarDialogo();
-        this.dialogoService.abrirDialogInfo("¡Esta reserva ha sido actualizada!").subscribe(opcionElegida => {
-          window.location.reload();
+          //this.dialogosService.cerrarDialogo();
+          this.dialogoService.abrirDialogInfo("¡Esta reserva ha sido actualizada!").subscribe(opcionElegida => {
+            window.location.reload();
           });
-          
+
         });
       }
     });
-    
+
   }
 
 }

@@ -1,51 +1,45 @@
-.divfondowelcome{
-    width: 100%;
-    
-    
+.divfondowelcome {
+  width: 100%;
 }
-.iconos{
-    display: flex;
-    justify-content: center;
-    
+.iconos {
+  display: flex;
+  justify-content: center;
 }
-.anchohr{
-    width: 100%;
+.anchohr {
+  width: 100%;
 }
 
-.contenedor{
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    
+.contenedor {
+  position: relative;
+  display: inline-block;
+  text-align: center;
 }
 
-.holaimagen{
-    opacity: 0.5;
+.holaimagen {
+  opacity: 0.9;
 }
-.tipoLetra{
-    
-    font-family: 'Playfair Display', serif;
-    font-size: large;
+.tipoLetra {
+  font-family: "Playfair Display", serif;
+  font-size: large;
 }
-.contenedorcardwelcome{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+.contenedorcardwelcome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.centrado{
-    position: absolute;
-    top: 20%;
-    left: 80%;
-    transform: translate(-50%, -50%);
-    background-color: white;
+.centrado {
+  position: absolute;
+  top: 20%;
+  left: 80%;
+  transform: translate(-50%, -50%);
+  background-color: white;
 }
 
-.tipoLetra{
-    
-    font-family: 'Playfair Display', serif;
-    
-    
+.tipoLetra {
+  font-family: "Playfair Display", serif;
 }
 
+img.fondo {
+  width: 100%;
+}

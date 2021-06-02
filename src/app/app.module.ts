@@ -31,6 +31,7 @@ import { MisreservasComponent } from './components/misreservas/misreservas.compo
 import { ListadoComponent } from './components/listado/listado.component';
 import { TodasLasReservasComponent } from './components/todas-las-reservas/todas-las-reservas.component';
 import { GestionComponent } from './components/gestion/gestion.component';
+import { ModificaUserComponent } from './components/modifica-user/modifica-user.component';
 
 
 @NgModule({
@@ -47,6 +48,7 @@ import { GestionComponent } from './components/gestion/gestion.component';
     ListadoComponent,
     TodasLasReservasComponent,
     GestionComponent,
+    ModificaUserComponent,
     
   ],
   imports: [

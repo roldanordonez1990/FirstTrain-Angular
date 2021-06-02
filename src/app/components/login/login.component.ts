@@ -14,7 +14,7 @@ import { JwtService } from '../../services/jwt.service';
 
 export class LoginComponent implements OnInit {
 
-  loginForm: FormGroup; 
+  loginForm: FormGroup;
   ocultarPassword: boolean = true;
 
   constructor(private router: Router, private dialogosService: DialogosService, private usuarioService: UsuariologinService,
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     this.dialogosService.abrirDialogCargando();
     this.usuarioService.autenticaUsuario(this.loginForm.controls.dni.value,
       this.loginForm.controls.password.value).subscribe(data => {
-        
+
         if (data.jwt != undefined) {
           this.autenticadorJwtService.almacenaJWT(data.jwt);
           console.log('Datos correctos');
@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
       });
   }
 
-/////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////
   volverAwelcome() {
     this.dialogosService.abrirDialogCargando();
     this.router.navigate(['/welcome']);

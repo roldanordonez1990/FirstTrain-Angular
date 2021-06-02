@@ -1,137 +1,155 @@
 <app-navigation-header></app-navigation-header>
 
-    <div class="container-fluid">
-      
-        <div class="row mt-3 mb-3">
-         
-            <div class="col-md-6 flex"> 
-                <ng-container *ngIf="!(listadoHoras.length == 0);">
-                <table mat-table [dataSource]="dataSourceTabla"> 
-                  <ng-container matColumnDef="Hora">
-                    <th mat-header-cell *matHeaderCellDef class="text-center">Hora</th> 
-                    <td mat-cell *matCellDef="let hora" class="text-center pt-1">{{hora.horas}}</td> 
-                  </ng-container> 
-                  <ng-container matColumnDef="Disponible">
-                    <th mat-header-cell *matHeaderCellDef class="text-center">Disponible</th> 
-                    <td mat-cell *matCellDef="let hora" class="text-center text-success pt-2"><ng-container *ngIf="hora.disponible == true else elseBlock"><mat-icon aria-hidden="false" aria-label="Example home icon">event_available</mat-icon></ng-container></td> 
-                  </ng-container> 
-                  <ng-container matColumnDef="Plazas Restantes">
-                    <th mat-header-cell *matHeaderCellDef class="text-center pl-3">Modalidad</th> 
-                    <td mat-cell *matCellDef="let hora" class="text-center pl-3 pt-2"><ng-container *ngIf="hora.id_actividad == 1 else elseBlock2"><mat-icon aria-hidden="false" aria-label="Example home icon">groups</mat-icon></ng-container></td> 
-                  </ng-container> 
-                  <ng-container matColumnDef="Reservar" class="text-center">
-                    <th mat-header-cell *matHeaderCellDef class="text-center pl-3">Reservar</th> 
-                    <span  *ngIf="(usuarioAutenticado != undefined); else elseBlock3"></span>
-                    <td mat-cell *matCellDef="let hora"  class="text-center pl-3 pb-1 pt-1"><ng-container *ngIf="hora.disponible == true else elseBlock3"><button mat-icon-button color="" aria-label="Example icon button with a menu icon" [value]="hora.id_horario" (click)="nuevaReserva(hora.id_horario)"> 
-                      <mat-icon aria-hidden="false" aria-label="Example home icon">control_point</mat-icon>
-                  </button></ng-container></td> 
-                   
-                  </ng-container> 
-                  <tr mat-header-row *matHeaderRowDef="columnas"></tr>
-                  <tr mat-row *matRowDef="let hora; columns: columnas;"></tr>
-                </table> 
-                </ng-container>
-                <ng-template #elseBlock>
-                  <td class="text-danger pl-3 w-responsive"><mat-icon aria-hidden="false" class="pl-4" aria-label="Example home icon">event_busy</mat-icon></td>
-              </ng-template>
-              <ng-template #elseBlock2>
-                <td class="text-center pl-3 pt-1"><mat-icon aria-hidden="false" aria-label="Example home icon">person</mat-icon></td>
-              </ng-template>
-              <ng-template #elseBlock3>
-                <td class="text-center"></td>
-              </ng-template>
-            </div>
-            <div class="col-md-5">
-              <mat-tab-group mat-align-tabs="start">
-                <mat-tab label="¿Cómo funciona?">
-                  <mat-card class="example-card">
-                    
-                    <mat-accordion>
-                      
-                      <mat-expansion-panel (opened)="panelOpenState = true"
-                                           (closed)="panelOpenState = false">
-                        <mat-expansion-panel-header>
-                          <mat-panel-title class="tipoLetra text-center justify w-responsive">
-                            ¡Te lo explicamos! 
-                            <mat-icon class="ml-1">chat_bubble_outline</mat-icon>
-                          </mat-panel-title>
-                          
-                        </mat-expansion-panel-header>
-                        <p class="w-responsive justify text-center">
-                          En primer lugar escoge la franja horaria que más se adapte a ti. Una vez hayas escogido, 
-                          nuestro entrenador formará los grupos para la semana. El horario que escojas, será para dos días. 
-                          Por ejemplo, si escoges acudir al centro de 09:00 - 10:00, irás en esta franja según los días de la semana que acuerdes con nuestro entrenador
-                        </p>
-    
-                      </mat-expansion-panel>
-                    </mat-accordion>
-                    
-                    <mat-card-content>
-                      
-                    
-                    </mat-card-content>
-                  </mat-card>
-                  
-                </mat-tab>
-                <mat-tab label="¿Cómo lo hago?">
+<div class="container-fluid">
 
-                  <mat-card class="example-card">
-                    
-                    <mat-accordion>
-                      
-                      <mat-expansion-panel (opened)="panelOpenState = true"
-                                           (closed)="panelOpenState = false">
-                        <mat-expansion-panel-header>
-                          <mat-panel-title class="tipoLetra text-center justify w-responsive mt-2">
-                            ¡Sólo tienes que pulsar el botón!
-                            <mat-icon aria-hidden="false" aria-label="Example home icon" class="ml-1 mb-1">control_point</mat-icon>
+  <div class="row mt-3 mb-3">
 
-                          </mat-panel-title>
-                          
-                        </mat-expansion-panel-header>
-                        <p class="w-responsive justify text-center">
-                         Mientras la franja horaria esté disponible, podrás reservar este horario. Una vez lo hayas hecho, no podrás volver a reservarlo desde aquí 
-                        </p>
-    
-                      </mat-expansion-panel>
-                    </mat-accordion>
-                    
-                    <mat-card-content>
-                      
-                    
-                    </mat-card-content>
-                  </mat-card>
-                </mat-tab>
-                <mat-tab label="¡Cuidado!">
-                  <mat-card class="example-card">
-                    
-                    <mat-accordion>
-                      
-                      <mat-expansion-panel (opened)="panelOpenState = true"
-                                           (closed)="panelOpenState = false">
-                        <mat-expansion-panel-header>
-                          <mat-panel-title class="tipoLetra text-center justify w-responsive">
-                            Necesitas saber que... 
-                            <mat-icon class="ml-1">help_outline</mat-icon>
-                          </mat-panel-title>
-                          
-                        </mat-expansion-panel-header>
-                        <p class="w-responsive justify text-center">
-                          Cada franja horaria tendrá un total de <strong class="text-danger">5</strong> plazas. Cuando el grupo esté formado, aparecerá como NO disponible 
-                        </p>
-    
-                      </mat-expansion-panel>
-                    </mat-accordion>
-                    
-                    <mat-card-content>
-                      
-                    
-                    </mat-card-content>
-                  </mat-card>
-                </mat-tab>
-              </mat-tab-group>
-            </div>
-            <div class="col-md-1"></div>
-        </div><!--Fin de la row-->
+    <div class="col-md-6 flex">
+      <ng-container *ngIf="!(listadoHoras.length == 0);">
+        <table mat-table [dataSource]="dataSourceTabla">
+          <ng-container matColumnDef="Hora">
+            <th mat-header-cell *matHeaderCellDef class="text-center">Hora</th>
+            <td mat-cell *matCellDef="let hora" class="text-center pt-1">{{hora.horas}}</td>
+          </ng-container>
+          <ng-container matColumnDef="Disponible">
+            <th mat-header-cell *matHeaderCellDef class="text-center">Disponible</th>
+            <td mat-cell *matCellDef="let hora" class="text-center text-success pt-2">
+              <ng-container *ngIf="hora.disponible == true else elseBlock">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">event_available</mat-icon>
+              </ng-container>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="Plazas Restantes">
+            <th mat-header-cell *matHeaderCellDef class="text-center pl-3">Modalidad</th>
+            <td mat-cell *matCellDef="let hora" class="text-center pl-3 pt-2">
+              <ng-container *ngIf="hora.id_actividad == 1 else elseBlock2">
+                <mat-icon aria-hidden="false" aria-label="Example home icon">groups</mat-icon>
+              </ng-container>
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="Reservar" class="text-center">
+            <th mat-header-cell *matHeaderCellDef class="text-center pl-3">Reservar</th>
+            <span *ngIf="(usuarioAutenticado != undefined); else elseBlock3"></span>
+            <td mat-cell *matCellDef="let hora" class="text-center pl-3 pb-1 pt-1">
+              <ng-container *ngIf="hora.disponible == true else elseBlock3"><button mat-icon-button color=""
+                  aria-label="Example icon button with a menu icon" [value]="hora.id_horario"
+                  (click)="nuevaReserva(hora.id_horario)">
+                  <mat-icon aria-hidden="false" aria-label="Example home icon">control_point</mat-icon>
+                </button></ng-container>
+            </td>
+
+          </ng-container>
+          <tr mat-header-row *matHeaderRowDef="columnas"></tr>
+          <tr mat-row *matRowDef="let hora; columns: columnas;"></tr>
+        </table>
+      </ng-container>
+      <ng-template #elseBlock>
+        <td class="text-danger pl-3 w-responsive">
+          <mat-icon aria-hidden="false" class="pl-4" aria-label="Example home icon">event_busy</mat-icon>
+        </td>
+      </ng-template>
+      <ng-template #elseBlock2>
+        <td class="text-center pl-3 pt-1">
+          <mat-icon aria-hidden="false" aria-label="Example home icon">person</mat-icon>
+        </td>
+      </ng-template>
+      <ng-template #elseBlock3>
+        <td class="text-center"></td>
+      </ng-template>
     </div>
+    <div class="col-md-5">
+      <mat-tab-group mat-align-tabs="start">
+        <mat-tab label="¿Cómo funciona?">
+          <mat-card class="example-card">
+
+            <mat-accordion>
+
+              <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title class="tipoLetra text-center justify w-responsive">
+                    ¡Te lo explicamos!
+                    <mat-icon class="ml-1">chat_bubble_outline</mat-icon>
+                  </mat-panel-title>
+
+                </mat-expansion-panel-header>
+                <p class="w-responsive justify text-center">
+                  En primer lugar escoge la franja horaria que más se adapte a ti. Una vez hayas escogido,
+                  nuestro entrenador formará los grupos para la semana. El horario que escojas, será para dos días.
+                  Por ejemplo, si escoges acudir al centro de 09:00 - 10:00, irás en esta franja según los días de la
+                  semana que acuerdes con nuestro entrenador
+                </p>
+
+              </mat-expansion-panel>
+            </mat-accordion>
+
+            <mat-card-content>
+
+
+            </mat-card-content>
+          </mat-card>
+
+        </mat-tab>
+        <mat-tab label="¿Cómo lo hago?">
+
+          <mat-card class="example-card">
+
+            <mat-accordion>
+
+              <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title class="tipoLetra text-center justify w-responsive mt-2">
+                    ¡Sólo tienes que pulsar el botón!
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" class="ml-1 mb-1">control_point
+                    </mat-icon>
+
+                  </mat-panel-title>
+
+                </mat-expansion-panel-header>
+                <p class="w-responsive justify text-center">
+                  Mientras la franja horaria esté disponible, podrás reservar este horario. Una vez lo hayas hecho, no
+                  podrás volver a reservarlo desde aquí
+                </p>
+
+              </mat-expansion-panel>
+            </mat-accordion>
+
+            <mat-card-content>
+
+
+            </mat-card-content>
+          </mat-card>
+        </mat-tab>
+        <mat-tab label="¡Cuidado!">
+          <mat-card class="example-card">
+
+            <mat-accordion>
+
+              <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title class="tipoLetra text-center justify w-responsive">
+                    Necesitas saber que...
+                    <mat-icon class="ml-1">help_outline</mat-icon>
+                  </mat-panel-title>
+
+                </mat-expansion-panel-header>
+                <p class="w-responsive justify text-center">
+                  Cada franja horaria tendrá un total de <strong class="text-danger">5</strong> plazas. Cuando el grupo
+                  esté formado, aparecerá como NO disponible
+                </p>
+
+              </mat-expansion-panel>
+            </mat-accordion>
+
+            <mat-card-content>
+
+
+            </mat-card-content>
+          </mat-card>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+    <div class="col-md-1"></div>
+  </div>
+  <!--Fin de la row-->
+</div>
 <app-footer></app-footer>

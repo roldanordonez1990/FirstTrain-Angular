@@ -4,7 +4,7 @@ import { Usuario } from '../../interfaces/interfaces';
 import { UsuMezcla } from '../../interfaces/interfaces';
 import { DialogosService } from '../../services/dialogos.service';
 import { GestionService } from 'src/app/services/gestion.service';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gestion',
@@ -23,7 +23,8 @@ export class GestionComponent implements OnInit {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSourceTabla.filter = filterValue.trim().toLowerCase();
   }
-  constructor(private gestionService: GestionService, private dialogosService: DialogosService) { }
+  constructor(private gestionService: GestionService, private dialogosService: DialogosService, 
+    private router: Router,) { }
 
   ngOnInit(): void {
 
@@ -48,6 +49,14 @@ export class GestionComponent implements OnInit {
         });
       
       });
+  }
+
+  /**
+   * 
+   */
+
+  goToModificar(){
+    this.router.navigate(['/modifica']);
   }
 
 }
