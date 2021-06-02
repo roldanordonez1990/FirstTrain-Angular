@@ -51,6 +51,23 @@ export class TodasLasReservasComponent implements OnInit {
 
   }
 
+    /**
+   * 
+   */
+
+     deleteReserva(id_reservas){
+      //this.dialogosService.abrirDialogCargando();
+      this.misReservasService.deleteReservas(id_reservas).subscribe(data => {
+        //        console.log(data);
+      //this.dialogosService.cerrarDialogo();
+      this.dialogoService.abrirDialogInfo("¡Esta reserva ha sido eliminada!").subscribe(opcionElegida => {
+        window.location.reload();
+          });
+        
+        });
+    }
+    
+
   /**
    * 
    */
@@ -60,14 +77,14 @@ export class TodasLasReservasComponent implements OnInit {
     this.todasLasReservasService.comprobacionReserva(id_hora, id_usu).subscribe(data => {
       this.reservas = data['existe'];
       if(this.reservas != null){
-       this.dialogoService.abrirDialogInfo("¡Lo siento! Ya has reservado esta hora").subscribe(opcionElegida => {
+       this.dialogoService.abrirDialogInfo("¡Lo siento! Ya ha reservado esta hora").subscribe(opcionElegida => {
        
        });
       }else{
         this.misReservasService.updateReservas(id_reservas, id_hora).subscribe(data => {
           //        console.log(data);
         //this.dialogosService.cerrarDialogo();
-        this.dialogoService.abrirDialogInfo("¡Tu reserva ha sido actualizada!").subscribe(opcionElegida => {
+        this.dialogoService.abrirDialogInfo("¡Esta reserva ha sido actualizada!").subscribe(opcionElegida => {
           window.location.reload();
           });
           
