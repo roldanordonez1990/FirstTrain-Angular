@@ -30,6 +30,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MisreservasComponent } from './components/misreservas/misreservas.component';
 import { ListadoComponent } from './components/listado/listado.component';
 import { TodasLasReservasComponent } from './components/todas-las-reservas/todas-las-reservas.component';
+import { GestionComponent } from './components/gestion/gestion.component';
 
 
 @NgModule({
@@ -45,6 +46,7 @@ import { TodasLasReservasComponent } from './components/todas-las-reservas/todas
     MisreservasComponent,
     ListadoComponent,
     TodasLasReservasComponent,
+    GestionComponent,
     
   ],
   imports: [

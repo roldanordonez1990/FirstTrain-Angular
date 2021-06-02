@@ -17,6 +17,23 @@ export interface Usuario{
     info: string;
    
 }
+
+export interface UsuMezcla{
+    id_usuario: number;
+    rol: number;
+    nombre: string;
+    apellidos: string;
+    dni: string;
+    email: string;
+    telefono: string;
+    direccion: string;
+    edad: string;
+    nivel: number;
+    password: string;
+    info_adicional: string;
+    nivel_corto: string;
+   
+}
 export interface Nivel_Entrenamiento{
 
     idniveles: number;

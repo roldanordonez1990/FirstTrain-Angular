@@ -7,6 +7,8 @@ import { ContenidoComponent } from './components/contenido/contenido.component';
 import { MisreservasComponent } from './components/misreservas/misreservas.component';
 import { ListadoComponent } from './components/listado/listado.component';
 import { TodasLasReservasComponent } from './components/todas-las-reservas/todas-las-reservas.component';
+import { GestionComponent } from './components/gestion/gestion.component';
+
 
 const routes: Routes = [
   {path: '', redirectTo: '/welcome', pathMatch: 'full'},
@@ -17,6 +19,8 @@ const routes: Routes = [
   {path: 'misreservas', component: MisreservasComponent},
   {path: 'listado', component: ListadoComponent},
   {path: 'todaslasreservas', component: TodasLasReservasComponent},
+  {path: 'gestion', component: GestionComponent},
+
 
 
 ];
