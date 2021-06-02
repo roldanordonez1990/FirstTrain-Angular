@@ -6,3 +6,13 @@ table {
   font-family: "Playfair Display", serif;
   font-size: small;
 }
+.sombreado {
+  filter: drop-shadow(5px 5px 10px #444);
+}
+th {
+  background: linear-gradient(to bottom, #00912e, white 100%);
+}
+
+.colorLetraCabecera {
+  color: black;
+}

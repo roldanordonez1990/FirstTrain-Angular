@@ -43,3 +43,7 @@
 img.fondo {
   width: 100%;
 }
+
+.sombreado{
+  filter: drop-shadow(5px 5px 10px #444);
+}

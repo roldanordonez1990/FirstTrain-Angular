@@ -6,13 +6,13 @@
 
     <div class="col-md-6 flex">
       <ng-container *ngIf="!(listadoHoras.length == 0);">
-        <table mat-table [dataSource]="dataSourceTabla">
+        <table mat-table [dataSource]="dataSourceTabla" class="sombreado">
           <ng-container matColumnDef="Hora">
-            <th mat-header-cell *matHeaderCellDef class="text-center">Hora</th>
+            <th mat-header-cell *matHeaderCellDef class="text-center colorLetraCabecera">Hora</th>
             <td mat-cell *matCellDef="let hora" class="text-center pt-1">{{hora.horas}}</td>
           </ng-container>
           <ng-container matColumnDef="Disponible">
-            <th mat-header-cell *matHeaderCellDef class="text-center">Disponible</th>
+            <th mat-header-cell *matHeaderCellDef class="text-center colorLetraCabecera">Disponible</th>
             <td mat-cell *matCellDef="let hora" class="text-center text-success pt-2">
               <ng-container *ngIf="hora.disponible == true else elseBlock">
                 <mat-icon aria-hidden="false" aria-label="Example home icon">event_available</mat-icon>
@@ -20,7 +20,7 @@
             </td>
           </ng-container>
           <ng-container matColumnDef="Plazas Restantes">
-            <th mat-header-cell *matHeaderCellDef class="text-center pl-3">Modalidad</th>
+            <th mat-header-cell *matHeaderCellDef class="text-center pl-3 colorLetraCabecera">Modalidad</th>
             <td mat-cell *matCellDef="let hora" class="text-center pl-3 pt-2">
               <ng-container *ngIf="hora.id_actividad == 1 else elseBlock2">
                 <mat-icon aria-hidden="false" aria-label="Example home icon">groups</mat-icon>
@@ -28,7 +28,7 @@
             </td>
           </ng-container>
           <ng-container matColumnDef="Reservar" class="text-center">
-            <th mat-header-cell *matHeaderCellDef class="text-center pl-3">Reservar</th>
+            <th mat-header-cell *matHeaderCellDef class="text-center pl-3 colorLetraCabecera">Reservar</th>
             <span *ngIf="(usuarioAutenticado != undefined); else elseBlock3"></span>
             <td mat-cell *matCellDef="let hora" class="text-center pl-3 pb-1 pt-1">
               <ng-container *ngIf="hora.disponible == true else elseBlock3"><button mat-icon-button color=""
