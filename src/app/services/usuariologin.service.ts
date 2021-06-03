@@ -51,10 +51,10 @@ export class UsuariologinService {
   /**
    * 
    */
-  getUsuarioAutenticado(incluirImagen: boolean = false): Observable<Usuario> {
+  getUsuarioAutenticado(id_usuario: number): Observable<Usuario> {
     // Petición para obtener el usuario autenticado, funcionará porque se envía el JWT en 
     // cada petición, gracias al HttpInterceptor
-    return this.http.get<Usuario>('/usuario/autenticadoImagen?foto=' + incluirImagen)
+    return this.http.get<Usuario>('/usuario/autenticadoImagen?id_usu=' +id_usuario)
       .pipe(
         tap(usuarioAutenticado => {
           this.usuarioAutenticado = usuarioAutenticado;

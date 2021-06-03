@@ -10,9 +10,8 @@ import { TodasLasReservasComponent } from './components/todas-las-reservas/todas
 import { GestionComponent } from './components/gestion/gestion.component';
 import { ModificaUserComponent } from './components/modifica-user/modifica-user.component';
 
-
-
 const routes: Routes = [
+
   {path: '', redirectTo: '/welcome', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'welcome', component: WelcomeComponent},
@@ -22,7 +21,7 @@ const routes: Routes = [
   {path: 'listado', component: ListadoComponent},
   {path: 'todaslasreservas', component: TodasLasReservasComponent},
   {path: 'gestion', component: GestionComponent},
-  {path: 'modifica', component: ModificaUserComponent},
+  {path: 'modifica/:id_usuario', component: ModificaUserComponent},
 
 
 

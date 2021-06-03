@@ -51,12 +51,4 @@ export class GestionComponent implements OnInit {
       });
   }
 
-  /**
-   * 
-   */
-
-  goToModificar(){
-    this.router.navigate(['/modifica']);
-  }
-
 }

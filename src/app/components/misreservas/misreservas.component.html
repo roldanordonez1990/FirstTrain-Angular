@@ -1,6 +1,6 @@
 <app-navigation-header></app-navigation-header>
 <div class="container-fluid">
-  <div class="row mt-4 mb-3">
+  <div class="row mt-4 mb-3" style="overflow-x:auto;">
     <div class="col-md-6">
       <ng-container *ngIf="!(listadoMisReservas.length == 0); else elseBlock">
         <h4 class="text-center tipoLetra ">Estas son tus reservas, {{usuarioAutenticado}}</h4>
@@ -55,7 +55,7 @@
     <ng-template #elseBlock>
       <p class="text-center text-danger mat-body-2">Aún no tienes ninguna reserva</p>
     </ng-template>
-    <div class="col-md-6">
+    <div class="col-md-6 mt-2">
       <div class="sombreado">
       <mat-card class="example-card ">
 
