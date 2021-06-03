@@ -9,6 +9,8 @@ import { ListadoComponent } from './components/listado/listado.component';
 import { TodasLasReservasComponent } from './components/todas-las-reservas/todas-las-reservas.component';
 import { GestionComponent } from './components/gestion/gestion.component';
 import { ModificaUserComponent } from './components/modifica-user/modifica-user.component';
+import { UpdateUserComponent } from './components/update-user/update-user.component';
+
 
 const routes: Routes = [
 
@@ -22,9 +24,7 @@ const routes: Routes = [
   {path: 'todaslasreservas', component: TodasLasReservasComponent},
   {path: 'gestion', component: GestionComponent},
   {path: 'modifica/:id_usuario', component: ModificaUserComponent},
-
-
-
+  {path: 'updateUser/:usuarioAutenticado3', component: UpdateUserComponent}
 
 ];
 

@@ -13,23 +13,23 @@ import { Md5 } from 'ts-md5/dist/md5'; // Para codificar en MD5
 import * as CryptoJS from 'crypto-js';
 
 @Component({
-  selector: 'app-modifica-user',
-  templateUrl: './modifica-user.component.html',
-  styleUrls: ['./modifica-user.component.css']
+  selector: 'app-update-user',
+  templateUrl: './update-user.component.html',
+  styleUrls: ['./update-user.component.css']
 })
-export class ModificaUserComponent implements OnInit {
+export class UpdateUserComponent implements OnInit {
   usuario: Usuario = null;
   updateRegistroForm: FormGroup;
   listadoNivelesEntrenamiento: Nivel_Entrenamiento[];
-  id_usuario: number;
+  usuarioAutenticado3: number;
   constructor(private rutaActiva: ActivatedRoute, private usuarioService: UsuariologinService,
     private router: Router, private registroServi: RegistroService, private dialogosService: DialogosService,
     private gestionService: GestionService) { }
 
   ngOnInit(): void {
     //Esto hace que podamos recoger el parámetro enviado por la URL
-    this.id_usuario = this.rutaActiva.snapshot.params.id_usuario;
-    this.cargarDatosUsuarioAutenticado(this.id_usuario);
+    this.usuarioAutenticado3 = this.rutaActiva.snapshot.params.usuarioAutenticado3;
+    this.cargarDatosUsuarioAutenticado(this.usuarioAutenticado3);
 
     this.updateRegistroForm = new FormGroup({
       nombre: new FormControl('', [Validators.required, Validators.minLength(5)]),
@@ -107,7 +107,7 @@ export class ModificaUserComponent implements OnInit {
           this.dialogosService.abrirDialogConfirmacion("Usuario actualizado correctamente").subscribe(opcionElegida => {
             if (opcionElegida == DialogTypes.RESPUESTA_ACEPTAR) {
   
-              this.router.navigate(['/gestion']);
+              this.router.navigate(['/welcome']);
             }
           });
         });
@@ -116,8 +116,8 @@ export class ModificaUserComponent implements OnInit {
   /**
    * 
    */
-  volverAgestion() {
-    this.router.navigate(['/gestion']);
+   volverAwelcome() {
+    this.router.navigate(['/welcome']);
   }
 
 }

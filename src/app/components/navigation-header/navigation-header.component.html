@@ -51,7 +51,7 @@
   <span class="spacer"></span>
 
   <ng-template #elseBlock2>
-    <p class="tipoLetra mt-3 mr-2" style="color: #bfbfbf;">First Train</p>
+    <p class="tipoLetra mt-3 mr-2" style="color: #bfbfbf;"> First Train - Center</p><mat-icon style="color: #bfbfbf;">fitness_center</mat-icon>
   </ng-template>
   <!--
   <h6 class="tipoLetra mt-2 mr-2" style="color: #bfbfbf;">First Train - Entrenamiento Personal</h6>
@@ -63,12 +63,13 @@
       <span class="tipoLetra2" style="color: #bfbfbf;">Hola,
         {{usuarioAutenticado}} {{usuarioAutenticado1}}</span>
     </ng-container>
+    <ng-container *ngIf="(usuarioAutenticado != undefined);">
     <button mat-icon-button color="accent" [matMenuTriggerFor]="menu">
       <!--<app-imagen-usuario [usuario]="usuarioAutenticado" [width]="50" [height]="50"></app-imagen-usuario>-->
       <mat-icon class="colorMenuButton">more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
+      <button mat-menu-item [routerLink]="['/updateUser', usuarioAutenticado3]">
         <mat-icon>account_circle</mat-icon>Modificar mis datos
       </button>
       <button mat-menu-item (click)="abandonarSesion()">
@@ -76,6 +77,7 @@
         <span>Cerrar sesión</span>
       </button>
     </mat-menu>
+  </ng-container>
   </ng-container>
 
 </nav>

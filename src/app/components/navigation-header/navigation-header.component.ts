@@ -19,6 +19,8 @@ export class NavigationHeaderComponent implements OnInit {
   usuarioAutenticado: Usuario[] // Guardo el usuario autenticado
   usuarioAutenticado1: Usuario[]
   usuarioAutenticado2: number;
+  usuarioAutenticado3: number;
+
 
   constructor(private navigationHeaderService: NavigationHeaderService,
     private usuariosService: UsuariologinService, private router: Router,
@@ -30,11 +32,17 @@ export class NavigationHeaderComponent implements OnInit {
       this.usuarioAutenticado = data['nombre'];
       this.usuarioAutenticado2 = data['rol'];
       this.usuarioAutenticado1 = data['apellidos'];
+      this.usuarioAutenticado3 = data['id_usuario'];
       console.log("hola soy tu amigo");
       console.log(this.usuarioAutenticado);
     });
 
   }
+
+
+  /**
+   * 
+   */
 
   abandonarSesion() {
     this.dialogosService.abrirDialogConfirmacion("¿Quieres abandonar la sesión?").subscribe(opcionElegida => {

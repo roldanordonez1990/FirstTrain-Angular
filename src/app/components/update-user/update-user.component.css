@@ -1,0 +1,31 @@
+.loginCard {
+    max-width: 820px;
+  }
+  .contenedorLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  .botonLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Playfair Display", serif !important;
+  }
+  
+  .temaBtnLogin {
+    background-color: black;
+    color: white;
+    font-family: "Playfair Display", serif !important;
+  }
+  
+  .errorValidacion {
+    margin-top: 5px;
+    color: #27a800;
+  }
+  
