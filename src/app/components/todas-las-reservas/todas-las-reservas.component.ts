@@ -6,7 +6,9 @@ import { Horario } from '../../interfaces/interfaces';
 import { Reserva } from '../../interfaces/interfaces';
 import { MisreservasService } from 'src/app/services/misreservas.service';
 import { TodasLasReservasService } from 'src/app/services/todas-las-reservas.service';
+import { NavigationHeaderService } from 'src/app/services/navigation-header.service';
 import { DialogosService } from '../../services/dialogos.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todas-las-reservas',
@@ -21,6 +23,7 @@ export class TodasLasReservasComponent implements OnInit {
   columnas: string[] = ['Nombre', 'Apellidos', 'Fecha', 'Horario', 'Cambiar', 'Eliminar'];
   listadoTodasLasReservas: Mezcla[];
   listadoHorasDisponibles: Horario[];
+  usuarioAutenticado2: number;
   reservas: Reserva[];
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -29,10 +32,19 @@ export class TodasLasReservasComponent implements OnInit {
 
 
   constructor(private todasLasReservasService: TodasLasReservasService,
-    private misReservasService: MisreservasService, private dialogoService: DialogosService) { }
+    private misReservasService: MisreservasService, private dialogoService: DialogosService,
+    private navigationHeaderService: NavigationHeaderService, private router: Router) { }
 
   ngOnInit(): void {
 
+    this.navigationHeaderService.getDatosUsuario().subscribe(data => {
+    
+      this.usuarioAutenticado2 = data['rol'];
+     if(this.usuarioAutenticado2 != 1){
+      this.router.navigate(['/welcome']);
+     }
+      console.log(this.usuarioAutenticado);
+    });
     this.todasLasReservasService.getDatosTodasLasReservas().subscribe(data => {
       this.dataSourceTabla = new MatTableDataSource<Mezcla>(data['todasLasReservas']);
       //también se lo asignamos a este listado para poder usarlo

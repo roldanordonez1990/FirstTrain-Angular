@@ -9,6 +9,7 @@ import { GestionService } from 'src/app/services/gestion.service';
 import { Router } from '@angular/router';
 import { DialogosService } from '../../services/dialogos.service';
 import { DialogTypes } from '../../components/dialogos/dialogos-general';
+import { NavigationHeaderService } from 'src/app/services/navigation-header.service';
 import { Md5 } from 'ts-md5/dist/md5'; // Para codificar en MD5
 import * as CryptoJS from 'crypto-js';
 
@@ -22,11 +23,26 @@ export class ModificaUserComponent implements OnInit {
   updateRegistroForm: FormGroup;
   listadoNivelesEntrenamiento: Nivel_Entrenamiento[];
   id_usuario: number;
+  usuarioAutenticado2: number;
   constructor(private rutaActiva: ActivatedRoute, private usuarioService: UsuariologinService,
     private router: Router, private registroServi: RegistroService, private dialogosService: DialogosService,
-    private gestionService: GestionService) { }
+    private gestionService: GestionService,private navigationHeaderService: NavigationHeaderService) { }
 
   ngOnInit(): void {
+  this.usuarioService.getUsuarioAutenticado(this.id_usuario).subscribe(usuario => {
+      if (usuario == null) { // Si no hay usuario autenticado, redirijo al login
+        this.router.navigate(['/welcome']);
+      }
+     
+    });
+    this.navigationHeaderService.getDatosUsuario().subscribe(data => {
+    
+      this.usuarioAutenticado2 = data['rol'];
+     if(this.usuarioAutenticado2 == null || this.usuarioAutenticado2 != 1){
+      this.router.navigate(['/welcome']);
+     }
+     
+    });
     //Esto hace que podamos recoger el parámetro enviado por la URL
     this.id_usuario = this.rutaActiva.snapshot.params.id_usuario;
     this.cargarDatosUsuarioAutenticado(this.id_usuario);

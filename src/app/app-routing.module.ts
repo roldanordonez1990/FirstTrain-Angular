@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: 'todaslasreservas', component: TodasLasReservasComponent},
   {path: 'gestion', component: GestionComponent},
   {path: 'modifica/:id_usuario', component: ModificaUserComponent},
-  {path: 'updateUser/:usuarioAutenticado3', component: UpdateUserComponent},
+  {path: 'updateUser', component: UpdateUserComponent},
   {path: 'cambio-password', component: CambioPasswordComponent},
 
 

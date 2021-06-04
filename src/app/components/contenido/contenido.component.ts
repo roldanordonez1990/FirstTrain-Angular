@@ -7,6 +7,7 @@ import { ContenidoService } from 'src/app/services/contenido.service';
 import { UsuariologinService } from 'src/app/services/usuariologin.service';
 import { DialogosService } from '../../services/dialogos.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { NavigationHeaderService } from 'src/app/services/navigation-header.service';
 import { Horario } from '../../interfaces/interfaces';
 import { Reserva } from '../../interfaces/interfaces';
 
@@ -29,24 +30,28 @@ export class ContenidoComponent implements OnInit {
   dataSourceTabla: MatTableDataSource<Horario>
   panelOpenState = false;
   idHorarioParaReserva: FormGroup;
+  usuarioAutenticado2: number;
 
   constructor(private contenidoService: ContenidoService,
     private usuariosService: UsuariologinService, private router: Router,
-    private dialogosService: DialogosService, private autenticadorJwtService: JwtService) { }
+    private dialogosService: DialogosService, private autenticadorJwtService: JwtService,
+    private navigationHeaderService: NavigationHeaderService) { }
 
   ngOnInit(): void {
 
+    this.navigationHeaderService.getDatosUsuario().subscribe(data => {
+    
+      this.usuarioAutenticado2 = data['rol'];
+     if(this.usuarioAutenticado2 == null){
+      this.router.navigate(['/welcome']);
+     }
+      
+    });
     this.idHorarioParaReserva = new FormGroup({
       idHora: new FormControl()
 
     });
-    this.contenidoService.getDatosUsuario().subscribe(data => {
-      this.usuarioAutenticado = data['id_usuario'];
-      console.log("HAS ENTRADO");
-      //this.router.navigate(['/contenido']);
-    });
-    //Llamamos al método del servidor con el que recogemos todos los cometidos y le asignamos los resultados (data)
-    //al objeto dataSourceTabla
+   
     this.contenidoService.getHorasHorario().subscribe(data => {
       this.dataSourceTabla = new MatTableDataSource<Horario>(data['horas']);
       //también se lo asignamos a este listado para poder usarlo

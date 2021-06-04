@@ -65,7 +65,20 @@ export class UsuariologinService {
   /**
    * 
    */
- 
+   /**
+   * 
+   */
+    getUsuarioAutenticado2(): Observable<Usuario> {
+      // Petición para obtener el usuario autenticado, funcionará porque se envía el JWT en 
+      // cada petición, gracias al HttpInterceptor
+      return this.http.get<Usuario>('/usuario/autenticadoImagen2')
+        .pipe(
+          tap(usuarioAutenticado => {
+            this.usuarioAutenticado = usuarioAutenticado;
+  
+          })
+        );
+    }
 
   /**
    * Comprueba si una determinada contraseña es igual a la del usuario autenticado
@@ -80,10 +93,10 @@ export class UsuariologinService {
      /**
    * Cambia la contraseña de un usuario por otra nueva
    */
-      cambiaPasswordUsuarioAutenticado (nuevaPassword: string) : Observable<object> {
-        var dto = {
-          'password': nuevaPassword
-        };
-        return this.http.post<object>('/usuario/modificaPassword', dto);
-      }
+  cambiaPasswordUsuarioAutenticado (nuevaPassword: string) : Observable<object> {
+    var dto = {
+      'password': nuevaPassword
+    };
+    return this.http.post<object>('/usuario/modificaPassword', dto);
+  }
 }

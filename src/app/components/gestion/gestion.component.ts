@@ -4,6 +4,7 @@ import { Usuario } from '../../interfaces/interfaces';
 import { UsuMezcla } from '../../interfaces/interfaces';
 import { DialogosService } from '../../services/dialogos.service';
 import { GestionService } from 'src/app/services/gestion.service';
+import { NavigationHeaderService } from 'src/app/services/navigation-header.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,6 +15,7 @@ import { Router } from '@angular/router';
 export class GestionComponent implements OnInit {
   usuarioAutenticado: Usuario[]; // Guardo el usuario autenticado
   listadoTodosLosUsuarios: UsuMezcla[];
+  usuarioAutenticado2: number;
 
   dataSourceTabla: MatTableDataSource<UsuMezcla>
   columnas: string[] = ['Nombre', 'Apellidos', 'Telefono', 'Edad', 'Direccion', 'Dni', 'Info'
@@ -24,9 +26,17 @@ export class GestionComponent implements OnInit {
     this.dataSourceTabla.filter = filterValue.trim().toLowerCase();
   }
   constructor(private gestionService: GestionService, private dialogosService: DialogosService, 
-    private router: Router,) { }
+    private router: Router,private navigationHeaderService: NavigationHeaderService) { }
 
   ngOnInit(): void {
+    this.navigationHeaderService.getDatosUsuario().subscribe(data => {
+    
+      this.usuarioAutenticado2 = data['rol'];
+     if(this.usuarioAutenticado2 != 1){
+      this.router.navigate(['/welcome']);
+     }
+      console.log(this.usuarioAutenticado);
+    });
 
     this.gestionService.getDatosTodasLosUsuarios().subscribe(data =>{
       this.dataSourceTabla = new MatTableDataSource<UsuMezcla>(data['todasLosDatosUsuario']);

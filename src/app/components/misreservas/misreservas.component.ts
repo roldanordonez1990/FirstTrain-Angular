@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Mezcla } from '../../interfaces/interfaces';
+import { Router } from '@angular/router';
 import { Usuario } from '../../interfaces/interfaces';
 import { Horario } from '../../interfaces/interfaces';
 import { Reserva } from '../../interfaces/interfaces';
 import { MisreservasService } from 'src/app/services/misreservas.service';
+import { NavigationHeaderService } from 'src/app/services/navigation-header.service';
 import { DialogosService } from '../../services/dialogos.service';
 
 @Component({
@@ -19,12 +21,21 @@ export class MisreservasComponent implements OnInit {
   listadoMisReservas: Mezcla[];
   listadoHorasDisponibles: Horario[];
   reservas: Reserva[];
+  usuarioAutenticado2: number;
 
-
-  constructor(private misreservasService: MisreservasService, private dialogoService: DialogosService) { }
+  constructor(private misreservasService: MisreservasService, private dialogoService: DialogosService,
+    private navigationHeaderService: NavigationHeaderService, private router: Router) { }
 
   ngOnInit(): void {
 
+    this.navigationHeaderService.getDatosUsuario().subscribe(data => {
+    
+      this.usuarioAutenticado2 = data['rol'];
+     if(this.usuarioAutenticado2 == null){
+      this.router.navigate(['/welcome']);
+     }
+      
+    });
     this.misreservasService.getDatosUsuario().subscribe(data => {
       this.usuarioAutenticado = data['nombre'];
 
