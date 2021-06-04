@@ -33,6 +33,7 @@ import { TodasLasReservasComponent } from './components/todas-las-reservas/todas
 import { GestionComponent } from './components/gestion/gestion.component';
 import { ModificaUserComponent } from './components/modifica-user/modifica-user.component';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
+import { CambioPasswordComponent } from './components/cambio-password/cambio-password.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { UpdateUserComponent } from './components/update-user/update-user.compon
     GestionComponent,
     ModificaUserComponent,
     UpdateUserComponent,
+    CambioPasswordComponent,
     
     
   ],

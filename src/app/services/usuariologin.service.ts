@@ -67,5 +67,23 @@ export class UsuariologinService {
    */
  
 
+  /**
+   * Comprueba si una determinada contraseña es igual a la del usuario autenticado
+   */
+   ratificaPasswordUsuarioAutenticado (password: string) : Observable<object> {
+    var dto = {
+      'password': password
+    };
+    return this.http.post<object>('/usuario/ratificaPassword', dto);
+  }
 
+     /**
+   * Cambia la contraseña de un usuario por otra nueva
+   */
+      cambiaPasswordUsuarioAutenticado (nuevaPassword: string) : Observable<object> {
+        var dto = {
+          'password': nuevaPassword
+        };
+        return this.http.post<object>('/usuario/modificaPassword', dto);
+      }
 }

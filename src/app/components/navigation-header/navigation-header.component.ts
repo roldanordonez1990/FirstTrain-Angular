@@ -53,5 +53,12 @@ export class NavigationHeaderComponent implements OnInit {
       }
     });
   }
+  /**
+   * 
+   */
 
+  goToCambioPassword() {
+    this.router.navigate(['/cambio-password']);
+
+  }
 }

@@ -10,7 +10,7 @@ import { TodasLasReservasComponent } from './components/todas-las-reservas/todas
 import { GestionComponent } from './components/gestion/gestion.component';
 import { ModificaUserComponent } from './components/modifica-user/modifica-user.component';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
-
+import { CambioPasswordComponent } from './components/cambio-password/cambio-password.component';
 
 const routes: Routes = [
 
@@ -24,7 +24,9 @@ const routes: Routes = [
   {path: 'todaslasreservas', component: TodasLasReservasComponent},
   {path: 'gestion', component: GestionComponent},
   {path: 'modifica/:id_usuario', component: ModificaUserComponent},
-  {path: 'updateUser/:usuarioAutenticado3', component: UpdateUserComponent}
+  {path: 'updateUser/:usuarioAutenticado3', component: UpdateUserComponent},
+  {path: 'cambio-password', component: CambioPasswordComponent},
+
 
 ];
 
