@@ -5,6 +5,8 @@ import { DialogTypes } from '../../components/dialogos/dialogos-general';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Nivel_Entrenamiento } from '../../interfaces/interfaces';
 import { RegistroService } from 'src/app/services/registro.service';
+import { Usuario } from '../../interfaces/interfaces';
+
 
 @Component({
   selector: 'app-registro',
@@ -15,7 +17,7 @@ export class RegistroComponent implements OnInit {
 
   registroForm: FormGroup;
   listadoNivelesEntrenamiento: Nivel_Entrenamiento[];
-
+  usuario: Usuario[];
   constructor(private router: Router,
     private dialogosService: DialogosService, private registroServi: RegistroService) { }
 
@@ -52,22 +54,36 @@ export class RegistroComponent implements OnInit {
    */
   nuevoUsuarioRegistrado() {
     this.dialogosService.abrirDialogCargando();
-    this.registroServi.registroNuevoUsuario(this.registroForm.controls.username.value,
-      this.registroForm.controls.apellidos.value, this.registroForm.controls.dni.value,
-      this.registroForm.controls.email.value, this.registroForm.controls.telefono.value,
-      this.registroForm.controls.direccion.value, this.registroForm.controls.edad.value,
-      this.registroForm.controls.nivel.value, this.registroForm.controls.password.value,
-      this.registroForm.controls.info.value).subscribe(data => {
-        //        console.log(data);
-        //this.dialogosService.cerrarDialogo();
-        //window.location.reload();
-        this.dialogosService.abrirDialogConfirmacion("¡Registro correcto! Loguéate para entrar").subscribe(opcionElegida => {
-          if (opcionElegida == DialogTypes.RESPUESTA_ACEPTAR) {
+    this.registroServi.compruebaDniExistente(this.registroForm.controls.dni.value).subscribe(data => {
+      this.usuario = data['existe'];
+     if(this.usuario != null){
+      this.dialogosService.abrirDialogConfirmacion("¡Este DNI ya existe!").subscribe(opcionElegida => {
+        if (opcionElegida == DialogTypes.RESPUESTA_ACEPTAR) {
 
-            this.router.navigate(['/login']);
-          }
-        });
+          this.router.navigate(['/registro']);
+        }
       });
+     }else{
+      this.registroServi.registroNuevoUsuario(this.registroForm.controls.username.value,
+        this.registroForm.controls.apellidos.value, this.registroForm.controls.dni.value,
+        this.registroForm.controls.email.value, this.registroForm.controls.telefono.value,
+        this.registroForm.controls.direccion.value, this.registroForm.controls.edad.value,
+        this.registroForm.controls.nivel.value, this.registroForm.controls.password.value,
+        this.registroForm.controls.info.value).subscribe(data => {
+          //        console.log(data);
+          //this.dialogosService.cerrarDialogo();
+          //window.location.reload();
+          this.dialogosService.abrirDialogConfirmacion("¡Registro correcto! Loguéate para entrar").subscribe(opcionElegida => {
+            if (opcionElegida == DialogTypes.RESPUESTA_ACEPTAR) {
+  
+              this.router.navigate(['/login']);
+            }
+          });
+        });
+     }
+      
+    });;
+    
   }
 
 }

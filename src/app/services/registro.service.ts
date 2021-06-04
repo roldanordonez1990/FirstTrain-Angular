@@ -49,4 +49,19 @@ export class RegistroService {
     );
   }
 
+    /**
+   * 
+   * @returns 
+   */
+     compruebaDniExistente(dni: string): Observable<Usuario[]> {
+      var jsonObject2 = {
+      
+        dni: dni
+       
+      };
+      return this.http.post<Usuario[]>('/usuario/comprobacion', jsonObject2).pipe(
+        //    tap(data => console.log(data)),
+      );
+    }
+  
 }
