@@ -11,6 +11,8 @@ import { GestionComponent } from './components/gestion/gestion.component';
 import { ModificaUserComponent } from './components/modifica-user/modifica-user.component';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
 import { CambioPasswordComponent } from './components/cambio-password/cambio-password.component';
+import { TerminoslegalesComponent } from './components/terminoslegales/terminoslegales.component';
+
 
 const routes: Routes = [
 
@@ -26,6 +28,7 @@ const routes: Routes = [
   {path: 'modifica/:id_usuario', component: ModificaUserComponent},
   {path: 'updateUser', component: UpdateUserComponent},
   {path: 'cambio-password', component: CambioPasswordComponent},
+  {path: 'terminoslegales', component: TerminoslegalesComponent},
 
 
 ];

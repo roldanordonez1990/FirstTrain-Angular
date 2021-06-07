@@ -34,6 +34,7 @@ import { GestionComponent } from './components/gestion/gestion.component';
 import { ModificaUserComponent } from './components/modifica-user/modifica-user.component';
 import { UpdateUserComponent } from './components/update-user/update-user.component';
 import { CambioPasswordComponent } from './components/cambio-password/cambio-password.component';
+import { TerminoslegalesComponent } from './components/terminoslegales/terminoslegales.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { CambioPasswordComponent } from './components/cambio-password/cambio-pas
     ModificaUserComponent,
     UpdateUserComponent,
     CambioPasswordComponent,
+    TerminoslegalesComponent,
     
     
   ],
