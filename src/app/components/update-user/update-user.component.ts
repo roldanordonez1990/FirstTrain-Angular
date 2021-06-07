@@ -35,7 +35,7 @@ export class UpdateUserComponent implements OnInit {
     this.cargarDatosUsuarioAutenticado2();
     console.log("Hola soy" + this.usuarioAutenticado3);
     this.updateRegistroForm = new FormGroup({
-      nombre: new FormControl('', [Validators.required, Validators.minLength(5)]),
+      nombre: new FormControl('', [Validators.required, Validators.minLength(3)]),
       apellidos: new FormControl('', [Validators.required]),
       dni: new FormControl('', [Validators.required, Validators.minLength(9), Validators.maxLength(9)]),
       direccion: new FormControl('', [Validators.required]),
