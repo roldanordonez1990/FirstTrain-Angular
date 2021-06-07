@@ -27,7 +27,8 @@ export class RegistroService {
       direccion: direccion,
       edad: edad,
       nivel: nivel,
-      password: md5.appendStr(password).end().toString(), // Codifico en MD5 el password recibido
+      //password: md5.appendStr(password).end().toString(), // Codifico en MD5 el password recibido
+      password: password,
       info: info 
     };
 
