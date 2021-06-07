@@ -9,6 +9,7 @@ import { TodasLasReservasService } from 'src/app/services/todas-las-reservas.ser
 import { NavigationHeaderService } from 'src/app/services/navigation-header.service';
 import { DialogosService } from '../../services/dialogos.service';
 import { Router } from '@angular/router';
+import { DialogTypes } from '../../components/dialogos/dialogos-general';
 
 @Component({
   selector: 'app-todas-las-reservas',
@@ -38,11 +39,11 @@ export class TodasLasReservasComponent implements OnInit {
   ngOnInit(): void {
 
     this.navigationHeaderService.getDatosUsuario().subscribe(data => {
-    
+
       this.usuarioAutenticado2 = data['rol'];
-     if(this.usuarioAutenticado2 != 1){
-      this.router.navigate(['/welcome']);
-     }
+      if (this.usuarioAutenticado2 != 1) {
+        this.router.navigate(['/welcome']);
+      }
       console.log(this.usuarioAutenticado);
     });
     this.todasLasReservasService.getDatosTodasLasReservas().subscribe(data => {
@@ -68,14 +69,13 @@ export class TodasLasReservasComponent implements OnInit {
  */
 
   deleteReserva(id_reservas) {
-    //this.dialogosService.abrirDialogCargando();
-    this.misReservasService.deleteReservas(id_reservas).subscribe(data => {
-      //        console.log(data);
-      //this.dialogosService.cerrarDialogo();
-      this.dialogoService.abrirDialogInfo("¡Esta reserva ha sido eliminada!").subscribe(opcionElegida => {
-        window.location.reload();
-      });
 
+    this.dialogoService.abrirDialogConfirmacion("¿Quieres eliminar esta reserva?").subscribe(opcionElegida => {
+      if (opcionElegida == DialogTypes.RESPUESTA_ACEPTAR) {
+        this.misReservasService.deleteReservas(id_reservas).subscribe(data => {
+          window.location.reload();
+        });
+      }
     });
   }
 
@@ -93,13 +93,13 @@ export class TodasLasReservasComponent implements OnInit {
 
         });
       } else {
-        this.misReservasService.updateReservas(id_reservas, id_hora).subscribe(data => {
-          //        console.log(data);
-          //this.dialogosService.cerrarDialogo();
-          this.dialogoService.abrirDialogInfo("¡Esta reserva ha sido actualizada!").subscribe(opcionElegida => {
-            window.location.reload();
-          });
 
+        this.dialogoService.abrirDialogConfirmacion("¿Quieres actualizar esta reserva?").subscribe(opcionElegida => {
+          if (opcionElegida == DialogTypes.RESPUESTA_ACEPTAR) {
+            this.misReservasService.updateReservas(id_reservas, id_hora).subscribe(data => {
+              window.location.reload();
+            });
+          }
         });
       }
     });

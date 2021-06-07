@@ -41,7 +41,7 @@
 
             <mat-form-field appearance="fill">
               <mat-label>DNI</mat-label>
-              <input type="text" matInput placeholder="Tu dni" formControlName="dni">
+              <input type="text" matInput placeholder="Tu dni" name="dni" formControlName="dni">
               <mat-hint></mat-hint>
               <!--Esto es una pequeña etiqueta para sugerencias de texto-->
               <ng-container *ngIf="registroForm.controls.dni.errors != undefined">
@@ -101,7 +101,7 @@
 
             <mat-form-field appearance="fill">
               <mat-label>Email</mat-label>
-              <input type="text" matInput placeholder="Tu email" formControlName="email">
+              <input type="text" matInput placeholder="Tu email" name="email" formControlName="email">
               <ng-container *ngIf="registroForm.controls.email.errors != undefined">
                 <div class="errorValidacion" *ngIf="registroForm.controls.email.errors.required">Debes introducir una
                   email
@@ -129,7 +129,7 @@
 
             <mat-form-field appearance="fill">
               <mat-label>Contraseña</mat-label>
-              <input type="text" matInput placeholder="Tu contraseña" formControlName="password">
+              <input type="text" matInput placeholder="Tu contraseña" name="password" formControlName="password">
               <ng-container *ngIf="registroForm.controls.password.errors != undefined">
                 <div class="errorValidacion" *ngIf="registroForm.controls.password.errors.required">Debes introducir
                   una contraseña

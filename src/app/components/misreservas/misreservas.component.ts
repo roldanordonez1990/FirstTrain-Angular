@@ -8,6 +8,7 @@ import { Reserva } from '../../interfaces/interfaces';
 import { MisreservasService } from 'src/app/services/misreservas.service';
 import { NavigationHeaderService } from 'src/app/services/navigation-header.service';
 import { DialogosService } from '../../services/dialogos.service';
+import { DialogTypes } from '../../components/dialogos/dialogos-general';
 
 @Component({
   selector: 'app-misreservas',
@@ -29,12 +30,12 @@ export class MisreservasComponent implements OnInit {
   ngOnInit(): void {
 
     this.navigationHeaderService.getDatosUsuario().subscribe(data => {
-    
+
       this.usuarioAutenticado2 = data['rol'];
-     if(this.usuarioAutenticado2 == null){
-      this.router.navigate(['/welcome']);
-     }
-      
+      if (this.usuarioAutenticado2 == null) {
+        this.router.navigate(['/welcome']);
+      }
+
     });
     this.misreservasService.getDatosUsuario().subscribe(data => {
       this.usuarioAutenticado = data['nombre'];
@@ -65,13 +66,14 @@ export class MisreservasComponent implements OnInit {
    */
 
   deleteReserva(id_reservas) {
-    //this.dialogosService.abrirDialogCargando();
-    this.misreservasService.deleteReservas(id_reservas).subscribe(data => {
-      //        console.log(data);
-      //this.dialogosService.cerrarDialogo();
-      this.dialogoService.abrirDialogInfo("¡Tu reserva ha sido eliminada!").subscribe(opcionElegida => {
-        window.location.reload();
-      });
+
+    this.dialogoService.abrirDialogConfirmacion("¿Quieres eliminar tu reserva?").subscribe(opcionElegida => {
+      if (opcionElegida == DialogTypes.RESPUESTA_ACEPTAR) {
+        this.misreservasService.deleteReservas(id_reservas).subscribe(data => {
+
+          window.location.reload();
+        });
+      }
 
     });
   }
@@ -89,13 +91,14 @@ export class MisreservasComponent implements OnInit {
 
         });
       } else {
-        this.misreservasService.updateReservas(id_reservas, id_hora).subscribe(data => {
-          //        console.log(data);
-          //this.dialogosService.cerrarDialogo();
-          this.dialogoService.abrirDialogInfo("¡Tu reserva ha sido actualizada!").subscribe(opcionElegida => {
-            window.location.reload();
-          });
 
+
+        this.dialogoService.abrirDialogConfirmacion("¿Quieres cambiar tu reserva a esta hora?").subscribe(opcionElegida => {
+          if (opcionElegida == DialogTypes.RESPUESTA_ACEPTAR) {
+            this.misreservasService.updateReservas(id_reservas, id_hora).subscribe(data => {
+              window.location.reload();
+            });
+          }
         });
       }
     });
