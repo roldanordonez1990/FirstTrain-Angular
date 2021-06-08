@@ -29,6 +29,7 @@ export class CambioPasswordComponent implements OnInit {
    * Actualizo el password por uno nuevo
    */
   actualizarPassword() {
+    this.dialogoService.abrirDialogCargando();
     // Compruebo si la contraseña escrita es real para el usuario autenticado
     //this.comunicacionAlertas.abrirDialogCargando();
     var actualEncriptada = this.encriptaMD5(this.formPass.controls.actual.value); // Encripto la contraseña con MD5
@@ -41,15 +42,17 @@ export class CambioPasswordComponent implements OnInit {
       else { // Se ha ratificado la contraseña actual, se lanza el cambio de contraseña
 
         // Lanzo la llamada al cambio de contraseña
-        var nuevaEncriptada = this.encriptaMD5(this.formPass.controls.nueva.value); // Encripto la nueva contraseña
+        //var nuevaEncriptada = this.encriptaMD5(this.formPass.controls.nueva.value); // Encripto la nueva contraseña
+        var nuevaEncriptada = this.formPass.controls.nueva.value;
         // Envio al servicio la petición de cambio de contraseña
         this.usuarioService.cambiaPasswordUsuarioAutenticado(nuevaEncriptada).subscribe(resultado => {
+          
           if (resultado["result"] == 'fail') { // Se obtiene fallo
             this.dialogoService.abrirDialogError('Error al actualizar la contraseña. Inténtelo más tarde.')
           }
           else { // todo ok.
             this.dialogoService.abrirDialogInfo('Contraseña actualizada con éxito').subscribe(result => {
-              this.router.navigate(['/welcome']); 
+              this.router.navigate(['/login']); 
             });
           }
         })
