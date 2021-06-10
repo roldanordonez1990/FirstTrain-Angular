@@ -67,7 +67,7 @@ export class MisreservasComponent implements OnInit {
 
   deleteReserva(id_reservas) {
 
-    this.dialogoService.abrirDialogConfirmacion("¿Quieres eliminar tu reserva?").subscribe(opcionElegida => {
+    this.dialogoService.abrirDialogConfirmacion("¿Quieres cancelar tu reserva?").subscribe(opcionElegida => {
       if (opcionElegida == DialogTypes.RESPUESTA_ACEPTAR) {
         this.misreservasService.deleteReservas(id_reservas).subscribe(data => {
 
