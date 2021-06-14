@@ -17,6 +17,7 @@
 
 .holaimagen {
   opacity: 0.9;
+  width: 100%;
 }
 .tipoLetra {
   font-family: "Playfair Display", serif;
@@ -46,4 +47,11 @@ img.fondo {
 
 .sombreado{
   filter: drop-shadow(5px 5px 10px #444);
+}
+
+#carouselExampleCaptions{
+  width: 100%;
+}
+.carouselExampleCaptions{
+  width: 100%;
 }
