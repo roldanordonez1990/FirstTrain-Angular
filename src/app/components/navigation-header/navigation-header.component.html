@@ -1,11 +1,11 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones" title="hola">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <!-- logo -->
-  <a class="navbar-brand ml-2" href="#">
-    <img src="../../assets/images/logoprincipal.jpg" width="70px;" alt="">
+  <a class="navbar-brand ml-2" href="welcome" alt="logo" for="logo">
+    <img src="../../assets/images/logoprincipal.jpg" width="70px;" alt="logo">
   </a>
   <ng-container *ngIf="(usuarioAutenticado != undefined); else elseBlock">
     <!-- enlaces -->

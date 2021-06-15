@@ -55,3 +55,7 @@ img.fondo {
 .carouselExampleCaptions{
   width: 100%;
 }
+
+.colormail{
+  color: blue !important;
+}
